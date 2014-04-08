@@ -1,6 +1,6 @@
-class CreateEquipment < ActiveRecord::Migration
+class CreateEquipmentals < ActiveRecord::Migration
   def change
-    create_table :equipment do |t|
+    create_table :equipmentals do |t|
       t.string :name
       t.decimal :rate
       t.string :units

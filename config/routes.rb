@@ -1,11 +1,14 @@
 BDP::Application.routes.draw do
+  resources :equipmentals
+
+  get "landing_page/index"
+  root 'landing_page#index'
+
   resources :incidentals
 
   resources :materials
 
   resources :customers
-
-  resources :equipment
 
   resources :labors
 

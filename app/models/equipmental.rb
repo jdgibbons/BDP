@@ -1,3 +1,3 @@
-class Equipment < ActiveRecord::Base
+class Equipmental < ActiveRecord::Base
   validates :name, :rate, :units, presence: true
 end

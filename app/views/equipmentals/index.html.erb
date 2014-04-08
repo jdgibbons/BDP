@@ -1,0 +1,31 @@
+<h1>Listing equipmentals</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Rate</th>
+      <th>Units</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @equipmentals.each do |equipmental| %>
+      <tr>
+        <td><%= equipmental.name %></td>
+        <td><%= equipmental.rate %></td>
+        <td><%= equipmental.units %></td>
+        <td><%= link_to 'Show', equipmental %></td>
+        <td><%= link_to 'Edit', edit_equipmental_path(equipmental) %></td>
+        <td><%= link_to 'Destroy', equipmental, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Equipmental', new_equipmental_path %>
