@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @incidental.description %>
+</p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= @incidental.cost %>
+</p>
+
+<%= link_to 'Edit', edit_incidental_path(@incidental) %> |
+<%= link_to 'Back', incidentals_path %>

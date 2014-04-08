@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :labor do
-    name "MyString"
-    rate "9.99"
-    units "MyString"
+    name "Laminating"
+    rate "0.4"
+    units "minutes"
   end
 end

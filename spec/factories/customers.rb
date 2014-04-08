@@ -2,9 +2,9 @@
 
 FactoryGirl.define do
   factory :customer do
-    name "MyString"
-    contact "MyString"
-    telephone "MyString"
-    email "MyString"
+    name "Minuteman Press"
+    contact "Chris Lewis"
+    telephone "(425) 402-7900"
+    email "eastlake@minutemanpress.com"
   end
 end

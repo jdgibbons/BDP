@@ -2,10 +2,10 @@
 
 FactoryGirl.define do
   factory :material do
-    name "MyString"
-    unit_type "MyString"
-    unit_price "9.99"
-    notes "MyString"
-    roll_cost "9.99"
+    name "Foam PVC white/Blk 5mm"
+    unit_type "SQ FT"
+    unit_price "1.14625"
+    notes "4x8 sheet, skid pricing"
+    roll_cost "36.68"
   end
 end

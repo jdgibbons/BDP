@@ -1,4 +1,6 @@
 BDP::Application.routes.draw do
+  resources :incidentals
+
   resources :materials
 
   resources :customers

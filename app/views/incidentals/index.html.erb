@@ -1,0 +1,29 @@
+<h1>Listing incidentals</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Cost</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @incidentals.each do |incidental| %>
+      <tr>
+        <td><%= incidental.description %></td>
+        <td><%= incidental.cost %></td>
+        <td><%= link_to 'Show', incidental %></td>
+        <td><%= link_to 'Edit', edit_incidental_path(incidental) %></td>
+        <td><%= link_to 'Destroy', incidental, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Incidental', new_incidental_path %>

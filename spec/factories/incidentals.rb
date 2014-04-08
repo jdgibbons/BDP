@@ -1,9 +1,8 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  factory :equipment do
-    name "Fuji"
-    rate "0.485"
-    units "minutes"
+  factory :incidental do
+    description "Some incidental cost"
+    cost "28.99"
   end
 end
