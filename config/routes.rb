@@ -1,4 +1,6 @@
 BDP::Application.routes.draw do
+  resources :contacts
+
   resources :equipmentals
 
   get "landing_page/index"

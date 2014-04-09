@@ -1,3 +1,4 @@
 class Customer < ActiveRecord::Base
-  validates :name, :contact, :telephone, :email, presence: true
+  has_many :contacts, dependent: :destroy
+  validates :name, presence: true
 end
