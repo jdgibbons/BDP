@@ -1,0 +1,29 @@
+<h1>Listing material_line_items</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Material</th>
+      <th>Material cart</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @material_line_items.each do |material_line_item| %>
+      <tr>
+        <td><%= material_line_item.material %></td>
+        <td><%= material_line_item.material_cart %></td>
+        <td><%= link_to 'Show', material_line_item %></td>
+        <td><%= link_to 'Edit', edit_material_line_item_path(material_line_item) %></td>
+        <td><%= link_to 'Destroy', material_line_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Material line item', new_material_line_item_path %>

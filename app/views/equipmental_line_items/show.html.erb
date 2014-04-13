@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Equipmental:</strong>
+  <%= @equipmental_line_item.equipmental %>
+</p>
+
+<p>
+  <strong>Equipmental cart:</strong>
+  <%= @equipmental_line_item.equipmental_cart %>
+</p>
+
+<%= link_to 'Edit', edit_equipmental_line_item_path(@equipmental_line_item) %> |
+<%= link_to 'Back', equipmental_line_items_path %>

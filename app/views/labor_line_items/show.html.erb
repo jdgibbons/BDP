@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Labor:</strong>
+  <%= @labor_line_item.labor %>
+</p>
+
+<p>
+  <strong>Labor cart:</strong>
+  <%= @labor_line_item.labor_cart %>
+</p>
+
+<%= link_to 'Edit', edit_labor_line_item_path(@labor_line_item) %> |
+<%= link_to 'Back', labor_line_items_path %>

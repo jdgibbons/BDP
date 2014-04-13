@@ -1,0 +1,29 @@
+<h1>Listing labor_line_items</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Labor</th>
+      <th>Labor cart</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @labor_line_items.each do |labor_line_item| %>
+      <tr>
+        <td><%= labor_line_item.labor %></td>
+        <td><%= labor_line_item.labor_cart %></td>
+        <td><%= link_to 'Show', labor_line_item %></td>
+        <td><%= link_to 'Edit', edit_labor_line_item_path(labor_line_item) %></td>
+        <td><%= link_to 'Destroy', labor_line_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Labor line item', new_labor_line_item_path %>

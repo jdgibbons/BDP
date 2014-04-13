@@ -1,4 +1,18 @@
 BDP::Application.routes.draw do
+  resources :orders
+
+  resources :equipmental_line_items
+
+  resources :equipmental_carts
+
+  resources :labor_line_items
+
+  resources :material_line_items
+
+  resources :labor_carts
+
+  resources :material_carts
+
   resources :contacts
 
   resources :equipmentals

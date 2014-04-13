@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Quote:</strong>
+  <%= @order.quote_id %>
+</p>
+
+<p>
+  <strong>Work order:</strong>
+  <%= @order.work_order_id %>
+</p>
+
+<p>
+  <strong>Invoice:</strong>
+  <%= @order.invoice_id %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @order.description %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @order.quantity %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>

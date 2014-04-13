@@ -1,0 +1,29 @@
+<h1>Listing equipmental_line_items</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Equipmental</th>
+      <th>Equipmental cart</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @equipmental_line_items.each do |equipmental_line_item| %>
+      <tr>
+        <td><%= equipmental_line_item.equipmental %></td>
+        <td><%= equipmental_line_item.equipmental_cart %></td>
+        <td><%= link_to 'Show', equipmental_line_item %></td>
+        <td><%= link_to 'Edit', edit_equipmental_line_item_path(equipmental_line_item) %></td>
+        <td><%= link_to 'Destroy', equipmental_line_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Equipmental line item', new_equipmental_line_item_path %>
