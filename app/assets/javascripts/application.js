@@ -11,6 +11,13 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
+//= require jquery.nested-fields
+//= require turbolinks
+//
+$(document).ready(function(e) {
+    $('FORM').nestedFields();
+});
+$(document).on('page:load', ready);

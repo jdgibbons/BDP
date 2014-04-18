@@ -1,18 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Quote:</strong>
-  <%= @order.quote_id %>
+  <strong>Order #:</strong>
+  <%= @order.order_number %>
 </p>
 
 <p>
-  <strong>Work order:</strong>
-  <%= @order.work_order_id %>
-</p>
-
-<p>
-  <strong>Invoice:</strong>
-  <%= @order.invoice_id %>
+  <strong>Customer:</strong>
+  <%= @order.customer.name %>
 </p>
 
 <p>

@@ -1,30 +1,35 @@
 class CustomersController < ApplicationController
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
 
+
   # GET /customers
   # GET /customers.json
   def index
+    @page_title = "customers"
     @customers = Customer.all
-    @temp_variable = 1
   end
 
   # GET /customers/1
   # GET /customers/1.json
   def show
+    @page_title = "customers"
   end
 
   # GET /customers/new
   def new
+    @page_title = "customers"
     @customer = Customer.new
   end
 
   # GET /customers/1/edit
   def edit
+    @page_title = "customers"
   end
 
   # POST /customers
   # POST /customers.json
   def create
+    @page_title = "customers"
     @customer = Customer.new(customer_params)
 
     respond_to do |format|
@@ -41,6 +46,7 @@ class CustomersController < ApplicationController
   # PATCH/PUT /customers/1
   # PATCH/PUT /customers/1.json
   def update
+    @page_title = "customers"
     respond_to do |format|
       if @customer.update(customer_params)
         format.html { redirect_to @customer, notice: 'Customer was successfully updated.' }
@@ -70,6 +76,7 @@ class CustomersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def customer_params
-      params.require(:customer).permit(:name, :contact, :telephone, :email)
+      params.require(:customer).permit(:name,
+                                       contacts_attributes: [:id, :name, :telephone, :email, :customer_id, :_destroy] )
     end
 end

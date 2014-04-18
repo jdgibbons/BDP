@@ -71,6 +71,6 @@ class EquipmentalLineItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def equipmental_line_item_params
-      params.require(:equipmental_line_item).permit(:equipmental_id, :equipmental_cart_id)
+      params.require(:equipmental_line_item).permit(:equipmental_id)
     end
 end

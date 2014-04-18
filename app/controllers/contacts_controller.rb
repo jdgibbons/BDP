@@ -14,20 +14,19 @@ class ContactsController < ApplicationController
 
   # GET /contacts/new
   def new
-    @customer = Customer.find(params[:customer_id])
+    @customers = Customer.all.sort_by { |cust| cust.name }
     @contact = Contact.new
   end
 
   # GET /contacts/1/edit
   def edit
+    @customers = Customer.all.sort_by { |cust| cust.name }
   end
 
   # POST /contacts
   # POST /contacts.json
   def create
     @contact = Contact.new(contact_params)
-    @contact.customer_id = params[:customer_id]
-    @contact.save!
     respond_to do |format|
       if @contact.save
         format.html { redirect_to @contact, notice: 'Contact was successfully created.' }

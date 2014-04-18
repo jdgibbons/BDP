@@ -5,17 +5,27 @@
   <%= @customer.name %>
 </p>
 
-<% @customer.contacts.each do |contact| %>
-  <p><%= contact.name %>, <%= contact.telephone %>, <%= contact.email %></p>
-<% end %>
 
-<%= form_for :contact, method: :get, url: new_contact_path do |f| %>
-  <p>
-    <%= hidden_field_tag 'customer_id', @customer.id %>
-    <%= hidden_field_tag :id, '' %>
-    <%= f.submit 'Add Contact' %>
-  </p>
-<% end %>
+  <h3>Contacts</h3>
+
+  <table border="0" cellspacing="0" cellpadding="0" id="customer_show">
+    <thead>
+    <th align="left">Name</th>
+    <th align="left">Telephone</th>
+    <th align="left">Email</th>
+    </thead>
+    <tbody class="items">
+    <% @customer.contacts.each do |contact| %>
+
+      <tr class="<%= cycle( "even", "odd" ) %>">
+        <td><%= contact.name %></td>
+        <td><%= contact.telephone %>
+        <td><%= contact.email %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
 
 <%= link_to 'Edit', edit_customer_path(@customer) %> |
 <%= link_to 'Back', customers_path %>

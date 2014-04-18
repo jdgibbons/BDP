@@ -1,0 +1,14 @@
+<%= f.fields_for :contacts do |ff| %>
+  <%= ff.label :name %>
+  <%= ff.text_field :name %>
+
+  <%= ff.label :telephone %>
+  <%= ff.text_field :telephone %>
+
+  <%= ff.label :email %>
+  <%= ff.text_field :email %>
+
+    <%= ff.check_box :_destroy %>
+    <%= ff.label :_destroy, "Delete" %>
+  <br />
+<% end %>

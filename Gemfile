@@ -20,6 +20,7 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-turbolinks'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
@@ -45,6 +46,9 @@ group :test do
   gem "launchy", "~> 2.3.0"
   gem "selenium-webdriver", "~> 2.39.0"
 end
+
+# Dynamically add fields within nested attributes
+gem 'awesome_nested_fields'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'

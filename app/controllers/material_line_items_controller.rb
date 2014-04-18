@@ -70,6 +70,6 @@ class MaterialLineItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def material_line_item_params
-      params.require(:material_line_item).permit(:material_id, :material_cart_id)
+      params.require(:material_line_item).permit(:material_id)
     end
 end

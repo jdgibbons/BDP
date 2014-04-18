@@ -4,26 +4,32 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
+    @page_title = "orders"
     @orders = Order.all
   end
 
   # GET /orders/1
   # GET /orders/1.json
   def show
+    @page_title = "orders"
   end
 
   # GET /orders/new
   def new
+    @page_title = "orders"
+    @customers = Customer.all.sort_by { |cust| cust.name }
     @order = Order.new
   end
 
   # GET /orders/1/edit
   def edit
+    @page_title = "orders"
   end
 
   # POST /orders
   # POST /orders.json
   def create
+    @page_title = "orders"
     @order = Order.new(order_params)
 
     respond_to do |format|
@@ -40,6 +46,7 @@ class OrdersController < ApplicationController
   # PATCH/PUT /orders/1
   # PATCH/PUT /orders/1.json
   def update
+    @page_title = "orders"
     respond_to do |format|
       if @order.update(order_params)
         format.html { redirect_to @order, notice: 'Order was successfully updated.' }
@@ -69,6 +76,9 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:quote_id, :work_order_id, :invoice_id, :description, :quantity)
+      params.require(:order).permit(:customer_id, :description, :quantity,
+                                    equipmental_line_items_attributes: [:id, :order_id, :equipmental_id, :quantity, :_destroy],
+                                    labor_line_items_attributes: [:id, :order_id, :labor_id, :quantity, :_destroy],
+                                    material_line_items_attributes: [:id, :order_id, :material_id, :quantity, :_destroy])
     end
 end

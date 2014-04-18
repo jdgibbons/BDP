@@ -71,6 +71,6 @@ class LaborLineItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def labor_line_item_params
-      params.require(:labor_line_item).permit(:labor_id, :labor_cart_id)
+      params.require(:labor_line_item).permit(:labor_id)
     end
 end

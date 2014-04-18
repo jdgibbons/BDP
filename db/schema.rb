@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140413233714) do
+ActiveRecord::Schema.define(version: 20140417064400) do
 
   create_table "contacts", force: true do |t|
     t.string   "name"
@@ -30,20 +30,14 @@ ActiveRecord::Schema.define(version: 20140413233714) do
     t.datetime "updated_at"
   end
 
-  create_table "equipmental_carts", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "equipmental_line_items", force: true do |t|
     t.integer  "equipmental_id"
-    t.integer  "equipmental_cart_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "order_id"
+    t.integer  "quantity"
   end
 
-  add_index "equipmental_line_items", ["equipmental_cart_id"], name: "index_equipmental_line_items_on_equipmental_cart_id", using: :btree
   add_index "equipmental_line_items", ["equipmental_id"], name: "index_equipmental_line_items_on_equipmental_id", using: :btree
   add_index "equipmental_line_items", ["order_id"], name: "index_equipmental_line_items_on_order_id", using: :btree
 
@@ -62,20 +56,14 @@ ActiveRecord::Schema.define(version: 20140413233714) do
     t.datetime "updated_at"
   end
 
-  create_table "labor_carts", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "labor_line_items", force: true do |t|
     t.integer  "labor_id"
-    t.integer  "labor_cart_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "order_id"
+    t.integer  "quantity"
   end
 
-  add_index "labor_line_items", ["labor_cart_id"], name: "index_labor_line_items_on_labor_cart_id", using: :btree
   add_index "labor_line_items", ["labor_id"], name: "index_labor_line_items_on_labor_id", using: :btree
   add_index "labor_line_items", ["order_id"], name: "index_labor_line_items_on_order_id", using: :btree
 
@@ -87,20 +75,14 @@ ActiveRecord::Schema.define(version: 20140413233714) do
     t.datetime "updated_at"
   end
 
-  create_table "material_carts", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "material_line_items", force: true do |t|
     t.integer  "material_id"
-    t.integer  "material_cart_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "order_id"
+    t.integer  "quantity"
   end
 
-  add_index "material_line_items", ["material_cart_id"], name: "index_material_line_items_on_material_cart_id", using: :btree
   add_index "material_line_items", ["material_id"], name: "index_material_line_items_on_material_id", using: :btree
   add_index "material_line_items", ["order_id"], name: "index_material_line_items_on_order_id", using: :btree
 
@@ -115,7 +97,6 @@ ActiveRecord::Schema.define(version: 20140413233714) do
   end
 
   create_table "orders", force: true do |t|
-    t.integer  "quote_id"
     t.integer  "work_order_id"
     t.integer  "invoice_id"
     t.text     "description"

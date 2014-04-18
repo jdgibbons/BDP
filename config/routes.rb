@@ -9,10 +9,6 @@ BDP::Application.routes.draw do
 
   resources :material_line_items
 
-  resources :labor_carts
-
-  resources :material_carts
-
   resources :contacts
 
   resources :equipmentals
