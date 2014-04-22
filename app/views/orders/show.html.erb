@@ -7,7 +7,7 @@
 
 <p>
   <strong>Customer:</strong>
-  <%= @order.customer.name %>
+  <%= link_to @order.customer.name, @order.customer %>
 </p>
 
 <p>
@@ -20,16 +20,14 @@
   <%= @order.quantity %>
 </p>
 
+  <div id="materialsvendors">
+    <%= render 'show_materials' %>
+  </div>
 
-  <%= render 'show_materials' %>
-
-  <%= render 'show_labors' %>
-
-<fieldset>
-  <legend>Equipment</legend>
-  <%= render 'show_equipmentals' %>
-</fieldset>
-
+  <div id="laborequipmentals">
+    <%= render 'show_labors' %>
+    <%= render 'show_equipmentals' %>
+  </div>
 
 
 <%= link_to 'Edit', edit_order_path(@order) %> |

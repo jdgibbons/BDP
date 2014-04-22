@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th>No.</th>
       <th>Customer</th>
       <th>Description</th>
       <th>Quantity</th>
@@ -15,6 +16,7 @@
   <tbody>
     <% @orders.each do |order| %>
       <tr>
+        <td><%= link_to order.order_number, order %></td>
         <td><%= order.customer.name %></td>
         <td><%= order.description %></td>
         <td><%= order.quantity %></td>

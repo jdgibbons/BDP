@@ -24,7 +24,7 @@ class Order < ActiveRecord::Base
     # !! This is not the final implementation !!
     if not work_order_id.nil?
       order_no += "-"
-      order_no += sprintf '%06i', work_order_id
+      order_no += work_order_id.to_s
     end
 
     # if there is an invoice, add a hyphen and then
@@ -32,7 +32,7 @@ class Order < ActiveRecord::Base
     # !! This is not the final implementation !!
     if not invoice_id.nil?
       order_no += "-"
-      order_no += sprintf '%06i', invoice_id
+      order_no += invoice_id.to_s
     end
     order_no
   end

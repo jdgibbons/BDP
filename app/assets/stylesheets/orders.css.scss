@@ -2,17 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 html.orders {
-  background: #FFE6CC;
+  background: #FFE0C2;
 }
 
 body.orders {
-  background: #FFE6CC;
+  background: #FFE0C2;
 }
-
-div#show_materials {
+div#materialsvendors {
   width: 50%;
   float: left;
-
+}
+div#laborequipmentals {
+  width: 50%;
+  float: right;
+}
+div#show_materials {
   table#materials_show {
     border: 0;
     cellspacing: 5px;
@@ -27,6 +31,9 @@ div#show_materials {
       }
       th {
         text-align: left;
+        #number {
+          width: 10%;
+        }
         #quantity {
           width: 10%;
         }
@@ -39,6 +46,9 @@ div#show_materials {
       }
       td {
         text-align: left;
+        #number {
+          width: 10%;
+        }
         #quantity {
           width: 10%;
         }
@@ -53,9 +63,54 @@ div#show_materials {
   }
 }
 
+div#show_equipmentals {
+  table#equipmentals_show {
+    border: 0;
+    cellspacing: 5px;
+    cellpadding: 0;
+    width: 80%;
+    tr {
+      .even {
+
+      }
+      .odd {
+
+      }
+      th {
+        text-align: left;
+        #number {
+          width: 10%;
+        }
+        #quantity {
+          width: 10%;
+        }
+        #equipmental {
+          width: 40%;
+        }
+        #rate {
+          width: 15%;
+        }
+      }
+      td {
+        text-align: left;
+        #number {
+          width: 10%;
+        }
+        #quantity {
+          width: 10%;
+        }
+        #equipmental {
+          width: 40%;
+        }
+        #rate {
+          width: 15%;
+        }
+      }
+    }
+  }
+}
+
 div#show_labors {
-  width: 50%;
-  float: right;
 
   table#labors_show {
     border: 0;
@@ -71,6 +126,9 @@ div#show_labors {
       }
       th {
         text-align: left;
+        #number {
+          width: 10%;
+        }
         #quantity {
           width: 10%;
         }
@@ -83,6 +141,9 @@ div#show_labors {
       }
       td {
         text-align: left;
+        #number {
+          width: 10%;
+        }
         #quantity {
           width: 10%;
         }
@@ -99,10 +160,8 @@ div#show_labors {
 }
 
 div#order_materials_edit {
-  width: 50%;
-  float: left;
 
-  table#order_materials_form {
+  table#editmaterials {
     border: 0;
     cellspacing: 5px;
     cellpadding: 0;
@@ -143,10 +202,8 @@ div#order_materials_edit {
 }
 
 div#order_labors_edit {
-  width: 50%;
-  float: right;
 
-  table#order_labors_form {
+  table#editlabors {
     border: 0;
     cellspacing: 5px;
     cellpadding: 0;
@@ -176,6 +233,47 @@ div#order_labors_edit {
           width: 10%;
         }
         #labor {
+          width: 40%;
+        }
+        #rate {
+          width: 15%;
+        }
+      }
+    }
+  }
+}
+div#order_equipmentals_edit {
+
+  table#editequipmentals {
+    border: 0;
+    cellspacing: 5px;
+    cellpadding: 0;
+    width: 80%;
+    tr {
+      .even {
+
+      }
+      .odd {
+
+      }
+      th {
+        text-align: left;
+        #quantity {
+          width: 10%;
+        }
+        #equipmental {
+          width: 40%;
+        }
+        #rate {
+          width: 15%;
+        }
+      }
+      td {
+        text-align: left;
+        #quantity {
+          width: 10%;
+        }
+        #equipmental {
           width: 40%;
         }
         #rate {

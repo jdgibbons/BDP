@@ -5,18 +5,20 @@
     <table id="labors_show">
       <thead>
       <tr>
+        <th id="number">No.</th>
         <th id="quantity">Qty</th>
         <th id="labor">Item</th>
         <th id="rate">Rate</th>
       </tr>
       </thead>
       <tbody class="items">
-      <% @order.labor_line_items.each do |lab| %>
+      <% @order.labor_line_items.each_with_index do |lab, index| %>
 
         <tr class="<%= cycle("even", "odd") %>">
-          <td><%= lab.quantity %>
-          <td><%= lab.labor.name %></td>
-          <td><%= lab.current_rate %></td>
+          <td id="number"><%= index + 1 %></td>
+          <td id="quantity"><%= lab.quantity %>
+          <td id="labor"><%= lab.labor.name %></td>
+          <td id="rate"><%= lab.current_rate %></td>
         </tr>
       <% end %>
       </tbody>

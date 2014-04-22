@@ -1,21 +1,26 @@
-<div id="show_equipmentals">
-  <table border="0" cellspacing="5px" cellpadding="0" id="order_show">
-    <thead>
-    <tr>
-      <th align="left">Quantity</th>
-      <th align="left">Equipment</th>
-      <th align="left">Price</th>
-    </tr>
-    </thead>
-    <tbody class="items">
-    <% @order.equipmental_line_items.each do |equip| %>
-
-      <tr class="<%= cycle("even", "odd") %>">
-        <td><%= equip.quantity %>
-        <td><%= equip.equipmental.name %></td>
-        <td><%= equip.current_rate %></td>
+<fieldset>
+  <legend>Equipment</legend>
+  <div id="show_equipmentals">
+    <table id="equipmentals_show">
+      <thead>
+      <tr>
+        <th id="number">No.</th>
+        <th id="quantity">Qty</th>
+        <th id="equipmentals">Equipment</th>
+        <th id="rate">Price</th>
       </tr>
-    <% end %>
-    </tbody>
-  </table>
-</div>
+      </thead>
+      <tbody class="items">
+      <% @order.equipmental_line_items.each_with_index do |equip, index| %>
+
+        <tr class="<%= cycle("even", "odd") %>">
+          <td id="number"><%= index + 1 %></td>
+          <td id="quantity"><%= equip.quantity %>
+          <td id="equimentals"><%= equip.equipmental.name %></td>
+          <td id="rate"><%= equip.current_rate %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</fieldset>

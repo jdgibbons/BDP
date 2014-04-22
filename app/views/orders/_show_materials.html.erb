@@ -5,15 +5,17 @@
     <table id="materials_show">
       <thead>
       <tr>
+        <th id="number">No.</th>
         <th id="quantity">Qty</th>
         <th id="material">Material</th>
         <th id="rate">Rate</th>
       </tr>
       </thead>
       <tbody class="items">
-      <% @order.material_line_items.each do |matter| %>
+      <% @order.material_line_items.each_with_index do |matter, index| %>
 
         <tr class="<%= cycle("even", "odd") %>">
+          <td id="number"><%= index + 1 %></td>
           <td id="quantity"><%= matter.quantity %>
           <td id="material"><%= matter.material.name %></td>
           <td id="rate"><%= matter.current_rate %></td>

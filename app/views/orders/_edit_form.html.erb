@@ -24,13 +24,14 @@
     <b><%= f.label :description %></b><br>
     <%= f.text_area :description, cols: 60, rows: 10 %>
   </div>
-
+  <div id="materialsvendors">
     <%= render :partial => "materials", :locals => {:f => f} %>
-
+  </div>
+  <div id="laborequipmentals">
     <%= render :partial => "labors", :locals => {:f => f} %>
 
     <%= render :partial => "equipmentals", :locals => {:f => f} %>
-
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

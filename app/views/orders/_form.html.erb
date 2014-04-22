@@ -27,21 +27,14 @@
     <%= f.number_field :quantity %>
   </div>
 
-  <fieldset>
-    <legend>Equipment</legend>
-    <%= render :partial => "equipmentals", :locals => {:f => f} %>
-  </fieldset>
-
-  <fieldset>
-    <legend>Labor</legend>
-    <%= render :partial => "labors", :locals => {:f => f} %>
-  </fieldset>
-
-  <fieldset>
-    <legend>Materials</legend>
+  <div id="materialsvendors">
     <%= render :partial => "materials", :locals => {:f => f} %>
-  </fieldset>
+  </div>
+  <div id="laborequipmentals">
+    <%= render :partial => "labors", :locals => {:f => f} %>
+    <%= render :partial => "equipmentals", :locals => {:f => f} %>
 
+  </div>
 
   <div class="actions">
     <%= f.submit %>
