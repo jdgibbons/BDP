@@ -2,5 +2,186 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 html.orders {
-  background: #FFE0B2;
+  background: #FFE6CC;
+}
+
+body.orders {
+  background: #FFE6CC;
+}
+
+div#show_materials {
+  width: 50%;
+  float: left;
+
+  table#materials_show {
+    border: 0;
+    cellspacing: 5px;
+    cellpadding: 0;
+    width: 80%;
+    tr {
+      .even {
+
+      }
+      .odd {
+
+      }
+      th {
+        text-align: left;
+        #quantity {
+          width: 10%;
+        }
+        #material {
+          width: 40%;
+        }
+        #rate {
+          width: 15%;
+        }
+      }
+      td {
+        text-align: left;
+        #quantity {
+          width: 10%;
+        }
+        #material {
+          width: 40%;
+        }
+        #rate {
+          width: 15%;
+        }
+      }
+    }
+  }
+}
+
+div#show_labors {
+  width: 50%;
+  float: right;
+
+  table#labors_show {
+    border: 0;
+    cellspacing: 5px;
+    cellpadding: 0;
+    width: 80%;
+    tr {
+      .even {
+
+      }
+      .odd {
+
+      }
+      th {
+        text-align: left;
+        #quantity {
+          width: 10%;
+        }
+        #labor {
+          width: 40%;
+        }
+        #rate {
+          width: 15%;
+        }
+      }
+      td {
+        text-align: left;
+        #quantity {
+          width: 10%;
+        }
+        #labor {
+          width: 40%;
+        }
+        #rate {
+          width: 15%;
+        }
+      }
+    }
+  }
+
+}
+
+div#order_materials_edit {
+  width: 50%;
+  float: left;
+
+  table#order_materials_form {
+    border: 0;
+    cellspacing: 5px;
+    cellpadding: 0;
+    width: 80%;
+    tr {
+      .even {
+
+      }
+      .odd {
+
+      }
+      th {
+        text-align: left;
+        #quantity {
+          width: 10%;
+        }
+        #material {
+          width: 40%;
+        }
+        #rate {
+          width: 15%;
+        }
+      }
+      td {
+        text-align: left;
+        #quantity {
+          width: 10%;
+        }
+        #material {
+          width: 40%;
+        }
+        #rate {
+          width: 15%;
+        }
+      }
+    }
+  }
+}
+
+div#order_labors_edit {
+  width: 50%;
+  float: right;
+
+  table#order_labors_form {
+    border: 0;
+    cellspacing: 5px;
+    cellpadding: 0;
+    width: 80%;
+    tr {
+      .even {
+
+      }
+      .odd {
+
+      }
+      th {
+        text-align: left;
+        #quantity {
+          width: 10%;
+        }
+        #labor {
+          width: 40%;
+        }
+        #rate {
+          width: 15%;
+        }
+      }
+      td {
+        text-align: left;
+        #quantity {
+          width: 10%;
+        }
+        #labor {
+          width: 40%;
+        }
+        #rate {
+          width: 15%;
+        }
+      }
+    }
+  }
 }

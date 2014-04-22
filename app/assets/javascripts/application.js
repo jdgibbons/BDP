@@ -17,7 +17,3 @@
 //= require jquery.nested-fields
 //= require turbolinks
 //
-$(document).ready(function(e) {
-    $('FORM').nestedFields();
-});
-$(document).on('page:load', ready);

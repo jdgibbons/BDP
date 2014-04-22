@@ -20,5 +20,17 @@
   <%= @order.quantity %>
 </p>
 
+
+  <%= render 'show_materials' %>
+
+  <%= render 'show_labors' %>
+
+<fieldset>
+  <legend>Equipment</legend>
+  <%= render 'show_equipmentals' %>
+</fieldset>
+
+
+
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>

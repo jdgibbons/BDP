@@ -1,0 +1,25 @@
+<div id="show_labors">
+  <fieldset>
+    <legend>Labor</legend>
+
+    <table id="labors_show">
+      <thead>
+      <tr>
+        <th id="quantity">Qty</th>
+        <th id="labor">Item</th>
+        <th id="rate">Rate</th>
+      </tr>
+      </thead>
+      <tbody class="items">
+      <% @order.labor_line_items.each do |lab| %>
+
+        <tr class="<%= cycle("even", "odd") %>">
+          <td><%= lab.quantity %>
+          <td><%= lab.labor.name %></td>
+          <td><%= lab.current_rate %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </fieldset>
+</div>

@@ -1,0 +1,27 @@
+<div id="order_materials_edit">
+  <fieldset>
+    <legend>Materials</legend>
+  <table id="order_materials_form">
+    <thead>
+    <tr>
+      <th>Quantity</th>
+      <th>Item</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody class="items">
+    <%= f.nested_fields_for :material_line_items do |f| %>
+      <tr class="item">
+        <td><%= f.text_field :quantity %></td>
+        <td><%= f.select :material_id, @materials.map { |matter| [matter.name, matter.id] } %></td>
+        <td>
+          <a href="#" class="remove">remove</a>
+          <%= f.hidden_field :_destroy %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <a href="#" class="add">add equipment</a>
+    </fieldset>
+</div>

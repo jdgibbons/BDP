@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140417064400) do
+ActiveRecord::Schema.define(version: 20140421192046) do
 
   create_table "contacts", force: true do |t|
     t.string   "name"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20140417064400) do
     t.datetime "updated_at"
     t.integer  "order_id"
     t.integer  "quantity"
+    t.decimal  "current_rate",   precision: 10, scale: 5
   end
 
   add_index "equipmental_line_items", ["equipmental_id"], name: "index_equipmental_line_items_on_equipmental_id", using: :btree
@@ -43,7 +44,7 @@ ActiveRecord::Schema.define(version: 20140417064400) do
 
   create_table "equipmentals", force: true do |t|
     t.string   "name"
-    t.decimal  "rate",       precision: 10, scale: 0
+    t.decimal  "rate",       precision: 10, scale: 5
     t.string   "units"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -51,7 +52,7 @@ ActiveRecord::Schema.define(version: 20140417064400) do
 
   create_table "incidentals", force: true do |t|
     t.string   "description"
-    t.decimal  "cost",        precision: 10, scale: 0
+    t.decimal  "cost",        precision: 10, scale: 5
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -62,6 +63,7 @@ ActiveRecord::Schema.define(version: 20140417064400) do
     t.datetime "updated_at"
     t.integer  "order_id"
     t.integer  "quantity"
+    t.decimal  "current_rate", precision: 10, scale: 5
   end
 
   add_index "labor_line_items", ["labor_id"], name: "index_labor_line_items_on_labor_id", using: :btree
@@ -69,7 +71,7 @@ ActiveRecord::Schema.define(version: 20140417064400) do
 
   create_table "labors", force: true do |t|
     t.string   "name"
-    t.decimal  "rate",       precision: 10, scale: 0
+    t.decimal  "rate",       precision: 10, scale: 5
     t.string   "units"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -81,6 +83,7 @@ ActiveRecord::Schema.define(version: 20140417064400) do
     t.datetime "updated_at"
     t.integer  "order_id"
     t.integer  "quantity"
+    t.decimal  "current_rate", precision: 10, scale: 5
   end
 
   add_index "material_line_items", ["material_id"], name: "index_material_line_items_on_material_id", using: :btree
@@ -89,9 +92,9 @@ ActiveRecord::Schema.define(version: 20140417064400) do
   create_table "materials", force: true do |t|
     t.string   "name"
     t.string   "unit_type"
-    t.decimal  "unit_price", precision: 10, scale: 0
+    t.decimal  "unit_price", precision: 10, scale: 5
     t.string   "notes"
-    t.decimal  "roll_cost",  precision: 10, scale: 0
+    t.decimal  "roll_cost",  precision: 10, scale: 5
     t.datetime "created_at"
     t.datetime "updated_at"
   end

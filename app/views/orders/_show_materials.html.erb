@@ -1,0 +1,25 @@
+<div id="show_materials">
+  <fieldset>
+    <legend>Materials</legend>
+
+    <table id="materials_show">
+      <thead>
+      <tr>
+        <th id="quantity">Qty</th>
+        <th id="material">Material</th>
+        <th id="rate">Rate</th>
+      </tr>
+      </thead>
+      <tbody class="items">
+      <% @order.material_line_items.each do |matter| %>
+
+        <tr class="<%= cycle("even", "odd") %>">
+          <td id="quantity"><%= matter.quantity %>
+          <td id="material"><%= matter.material.name %></td>
+          <td id="rate"><%= matter.current_rate %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </fieldset>
+</div>

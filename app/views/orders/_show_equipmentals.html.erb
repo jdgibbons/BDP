@@ -1,0 +1,21 @@
+<div id="show_equipmentals">
+  <table border="0" cellspacing="5px" cellpadding="0" id="order_show">
+    <thead>
+    <tr>
+      <th align="left">Quantity</th>
+      <th align="left">Equipment</th>
+      <th align="left">Price</th>
+    </tr>
+    </thead>
+    <tbody class="items">
+    <% @order.equipmental_line_items.each do |equip| %>
+
+      <tr class="<%= cycle("even", "odd") %>">
+        <td><%= equip.quantity %>
+        <td><%= equip.equipmental.name %></td>
+        <td><%= equip.current_rate %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

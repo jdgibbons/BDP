@@ -4,6 +4,9 @@ class Order < ActiveRecord::Base
   has_many :labor_line_items
   has_many :equipmental_line_items
 
+  after_save :set_current_equipmentals_li_rate, :set_current_materials_li_rate,
+             :set_current_labors_li_rate
+
   accepts_nested_attributes_for :equipmental_line_items, allow_destroy: true
 
   accepts_nested_attributes_for :labor_line_items, allow_destroy: true
@@ -33,4 +36,32 @@ class Order < ActiveRecord::Base
     end
     order_no
   end
+
+  def set_current_equipmentals_li_rate
+    equipmental_line_items.each do |equip|
+      if equip.current_rate.nil?
+        equip.current_rate = equip.equipmental.rate
+        equip.save
+      end
+    end
+  end
+
+  def set_current_materials_li_rate
+    material_line_items.each do |matter|
+      if matter.current_rate.nil?
+        matter.current_rate = matter.material.unit_price
+        matter.save
+      end
+    end
+  end
+
+  def set_current_labors_li_rate
+    labor_line_items.each do |lab|
+      if lab.current_rate.nil?
+        lab.current_rate = lab.labor.rate
+        lab.save
+      end
+    end
+  end
 end
+

@@ -1,22 +1,24 @@
-<table border="0" cellspacing="0" cellpadding="0" id="customer_contacts_edit">
-  <thead>
-  <th>Name</th>
-  <th>Telephone</th>
-  <th>Email</th>
-  <th></th>
-  </thead>
-  <tbody class="items">
-  <%= f.nested_fields_for :contacts do |f| %>
+<div id="customer_contacts_edit">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <thead>
+    <th>Name</th>
+    <th>Telephone</th>
+    <th>Email</th>
+    <th></th>
+    </thead>
+    <tbody class="items">
+    <%= f.nested_fields_for :contacts do |f| %>
       <tr class="item <%= cycle("even", "odd") %>">
-      <td><%= f.text_field :name %></td>
-      <td><%= f.text_field :telephone %></td>
-      <td><%= f.text_field :email %></td>
+        <td><%= f.text_field :name %></td>
+        <td><%= f.text_field :telephone %></td>
+        <td><%= f.text_field :email %></td>
 
-      <td><a href="#" class="remove" data-confirm="Are you sure?">remove</a>
-        <%= f.hidden_field :_destroy %>
-      </td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
-<a href="#" class="add">add contact</a>
+        <td><a href="#" class="remove" data-confirm="Are you sure?">remove</a>
+          <%= f.hidden_field :_destroy %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <a href="#" class="add">add contact</a>
+</div>

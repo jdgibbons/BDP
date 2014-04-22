@@ -18,12 +18,18 @@ class OrdersController < ApplicationController
   def new
     @page_title = "orders"
     @customers = Customer.all.sort_by { |cust| cust.name }
+    @equipmentals = Equipmental.all.sort_by { |equipment| equipment.name }
+    @materials = Material.all.sort_by { |matter| matter.name }
+    @labors = Labor.all.sort_by { |lab| lab.name }
     @order = Order.new
   end
 
   # GET /orders/1/edit
   def edit
     @page_title = "orders"
+    @equipmentals = Equipmental.all.sort_by { |equipment| equipment.name }
+    @materials = Material.all.sort_by { |matter| matter.name }
+    @labors = Labor.all.sort_by { |lab| lab.name }
   end
 
   # POST /orders
