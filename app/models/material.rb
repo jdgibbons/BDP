@@ -1,5 +1,6 @@
 class Material < ActiveRecord::Base
   has_many :material_line_items
+  has_many :wo_material_line_items
 
   before_destroy :ensure_not_referenced_by_any_material_line_item
 
@@ -9,7 +10,7 @@ class Material < ActiveRecord::Base
 
   # ensure that there are no MLIs referencing this material
   def ensure_not_referenced_by_any_material_line_item
-    if material_line_items.empty?
+    if material_line_items.empty? && wo_material_line_items.empty?
       return true
     else
       errors.add(:base, 'Material Line Items present')

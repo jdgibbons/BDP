@@ -12,7 +12,7 @@
       <tbody class="items">
       <%= f.nested_fields_for :labor_line_items do |f| %>
         <tr class="item">
-          <td id="quantity"><%= f.text_field :quantity %></td>
+          <td id="quantity"><%= f.number_field :quantity %></td>
           <td id="labor"><%= f.select :labor_id, @labors.map { |lab| [lab.name, lab.id] } %></td>
           <td>
             <a href="#" class="remove">remove</a>

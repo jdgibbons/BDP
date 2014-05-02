@@ -1,0 +1,42 @@
+<h3 style="padding-left: 15px;">Costs and Estimate</h3>
+<table id="costs">
+  <tr>
+    <th id="number">No.</th>
+    <th id="description">Description</th>
+    <th id="total">Total</th>
+  </tr>
+  <tr class="odd">
+    <td>1</td>
+    <td>Materials Subtotal</td>
+    <td id="total"><%= number_to_currency(@materials_subtotal) %></td>
+  </tr>
+  <tr class="even">
+    <td>2</td>
+    <td>Equipment/Labor Subtotal</td>
+    <td id="total"><%= number_to_currency(@equipmentals_subtotal + @labors_subtotal) %></td>
+  </tr>
+  <tr class="odd">
+    <td>3</td>
+    <td>Vendor Subtotal</td>
+    <td id="total"><%= number_to_currency(@vendors_subtotal) %></td>
+  </tr>
+  <tr class="even">
+    <td>4</td>
+    <td>Incidentals</td>
+    <td id="total"><%= number_to_currency(@order.incidentals) %></td>
+  </tr>
+  <tr>
+    <td colspan="3">&nbsp;</td>
+  </tr>
+  <tr class="odd">
+    <td></td>
+    <td>Cost of Goods</td>
+    <td id="total"><%= number_to_currency(@order.cost_of_goods) %></td>
+  </tr>
+  <tr>
+    <th colspan="2" id="salesestimate">Sales Estimate</th>
+    <td id="salesestimate"><%= number_to_currency(@materials_subtotal + @equipmentals_subtotal +
+                                                  @labors_subtotal + @vendors_subtotal + @order.incidentals +
+                                                 (@materials_subtotal * @cost_of_goods)) %></td>
+  </tr>
+</table>

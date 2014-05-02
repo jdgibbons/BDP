@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140421192046) do
+ActiveRecord::Schema.define(version: 20140502222453) do
 
   create_table "contacts", force: true do |t|
     t.string   "name"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20140421192046) do
     t.integer  "order_id"
     t.integer  "quantity"
     t.decimal  "current_rate",   precision: 10, scale: 5
+    t.decimal  "total_cost",     precision: 10, scale: 2
   end
 
   add_index "equipmental_line_items", ["equipmental_id"], name: "index_equipmental_line_items_on_equipmental_id", using: :btree
@@ -64,6 +65,7 @@ ActiveRecord::Schema.define(version: 20140421192046) do
     t.integer  "order_id"
     t.integer  "quantity"
     t.decimal  "current_rate", precision: 10, scale: 5
+    t.decimal  "total_cost",   precision: 10, scale: 2
   end
 
   add_index "labor_line_items", ["labor_id"], name: "index_labor_line_items_on_labor_id", using: :btree
@@ -84,6 +86,7 @@ ActiveRecord::Schema.define(version: 20140421192046) do
     t.integer  "order_id"
     t.integer  "quantity"
     t.decimal  "current_rate", precision: 10, scale: 5
+    t.decimal  "total_cost",   precision: 10, scale: 2
   end
 
   add_index "material_line_items", ["material_id"], name: "index_material_line_items_on_material_id", using: :btree
@@ -100,15 +103,62 @@ ActiveRecord::Schema.define(version: 20140421192046) do
   end
 
   create_table "orders", force: true do |t|
-    t.integer  "work_order_id"
-    t.integer  "invoice_id"
     t.text     "description"
     t.integer  "quantity"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "customer_id"
+    t.date     "completion_date"
+    t.decimal  "incidentals",       precision: 10, scale: 0, default: 0
+    t.decimal  "market_adjustment", precision: 10, scale: 2
+    t.decimal  "cost_of_goods",     precision: 10, scale: 2
+    t.decimal  "sales_commission",  precision: 10, scale: 2
   end
 
   add_index "orders", ["customer_id"], name: "index_orders_on_customer_id", using: :btree
+
+  create_table "vendors", force: true do |t|
+    t.string   "description"
+    t.integer  "quantity"
+    t.decimal  "cost",        precision: 10, scale: 5
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "order_id"
+    t.decimal  "total_cost",  precision: 10, scale: 2
+  end
+
+  add_index "vendors", ["order_id"], name: "index_vendors_on_order_id", using: :btree
+
+  create_table "wo_equipmental_line_items", force: true do |t|
+    t.integer  "work_order_id"
+    t.integer  "quantity"
+    t.integer  "equipmental_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "wo_labor_line_items", force: true do |t|
+    t.integer  "work_order_id"
+    t.integer  "quantity"
+    t.integer  "labor_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "wo_material_line_items", force: true do |t|
+    t.integer  "work_order_id"
+    t.integer  "quantity"
+    t.integer  "material_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "work_orders", force: true do |t|
+    t.integer  "order_id"
+    t.text     "description"
+    t.string   "quantity"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

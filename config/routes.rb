@@ -1,4 +1,8 @@
 BDP::Application.routes.draw do
+  resources :work_orders
+
+  resources :vendors
+
   resources :orders
 
   resources :equipmental_line_items

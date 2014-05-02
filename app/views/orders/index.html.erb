@@ -1,6 +1,6 @@
 <h1>Orders</h1>
 
-<table>
+<table id="order_index">
   <thead>
     <tr>
       <th>No.</th>
@@ -15,7 +15,7 @@
 
   <tbody>
     <% @orders.each do |order| %>
-      <tr>
+      <tr class="<%= cycle 'odd', 'even' %>">
         <td><%= link_to order.order_number, order %></td>
         <td><%= order.customer.name %></td>
         <td><%= order.description %></td>
@@ -27,9 +27,8 @@
     <% end %>
   </tbody>
 </table>
-
+<% reset_cycle %>
 <br>
-
 <%= link_to 'New Order', new_order_path %>
 
 <p>&nbsp;<br />&nbsp;</p>

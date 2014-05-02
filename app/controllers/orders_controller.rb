@@ -1,6 +1,8 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
+  before_filter :reparse_date, only: [:update, :create]
+
   # GET /orders
   # GET /orders.json
   def index
@@ -12,6 +14,11 @@ class OrdersController < ApplicationController
   # GET /orders/1.json
   def show
     @page_title = "orders"
+    @materials_subtotal = 0.00
+    @equipmentals_subtotal = 0.00
+    @labors_subtotal = 0.00
+    @vendors_subtotal = 0.00
+    @cost_of_goods = 0.1;
   end
 
   # GET /orders/new
@@ -80,11 +87,22 @@ class OrdersController < ApplicationController
       @order = Order.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+  # Compensate for the date format problem that is caused by the jquery datepicker
+  def reparse_date
+    if params[:order][:completion_date].nil? || params[:order][:completion_date] == ""
+      params[:order][:completion] = ""
+      return
+    end
+    temp_date = params[:order][:completion_date].split("/")
+    params[:order][:completion_date] = temp_date[1] + "/" + temp_date[0] + "/" + temp_date[2]
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:customer_id, :description, :quantity,
+      params.require(:order).permit(:customer_id, :description, :quantity, :completion_date,
                                     equipmental_line_items_attributes: [:id, :order_id, :equipmental_id, :quantity, :_destroy],
                                     labor_line_items_attributes: [:id, :order_id, :labor_id, :quantity, :_destroy],
-                                    material_line_items_attributes: [:id, :order_id, :material_id, :quantity, :_destroy])
+                                    material_line_items_attributes: [:id, :order_id, :material_id, :quantity, :_destroy],
+                                    vendors_attributes: [:id, :order_id, :quantity, :description, :cost, :_destroy])
     end
 end

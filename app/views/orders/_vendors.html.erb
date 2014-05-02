@@ -1,0 +1,29 @@
+<div id="order_vendors_edit">
+  <fieldset>
+    <legend>Vendors</legend>
+    <table id="editvendors">
+      <thead>
+      <tr>
+        <th id="quantity">Quantity</th>
+        <th id="description">Description</th>
+        <th id="cost">Cost</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody class="items">
+      <%= f.nested_fields_for :vendors do |f| %>
+        <tr class="item">
+          <td id="quantity"><%= f.number_field :quantity, min: 1 %></td>
+          <td id="description"><%= f.text_field :description, size: 35 %></td>
+          <td id="cost"><%= f.text_field :cost, size: 6 %></td>
+          <td>
+            <a href="#" class="remove">remove</a>
+            <%= f.hidden_field :_destroy %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <a href="#" class="add">add vendor</a>
+  </fieldset>
+</div>

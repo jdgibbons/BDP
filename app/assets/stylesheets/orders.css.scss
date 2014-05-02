@@ -8,56 +8,111 @@ html.orders {
 body.orders {
   background: #FFE0C2;
 }
+
+div#order_drop_downs {
+  display: block;
+  width: 100%;
+}
+
+form div#order_submit {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+
+div#fulldescription {
+  display: block;
+  width: 100%;
+}
+
+div#submission {
+  display: block;
+}
+
+div#ordervitals {
+  width: 60%;
+  float: left;
+}
+
+div#orderdates {
+  width: 30%;
+  float: right;
+  text-align: right;
+  padding-right: 10%;
+}
+
 div#materialsvendors {
   width: 50%;
   float: left;
 }
+
 div#laborequipmentals {
   width: 50%;
   float: right;
 }
+
+div#costsummary {
+  width: 50%;
+  float: right;
+}
+
 div#show_materials {
   table#materials_show {
     border: 0;
     cellspacing: 5px;
     cellpadding: 0;
-    width: 80%;
+    width: 95%;
+    tr.odd {
+      background-color: #FFD0A4;
+    }
     tr {
-      .even {
-
-      }
-      .odd {
-
-      }
-      th {
+      th#number {
         text-align: left;
-        #number {
-          width: 10%;
-        }
-        #quantity {
-          width: 10%;
-        }
-        #material {
-          width: 40%;
-        }
-        #rate {
-          width: 15%;
-        }
+        width: 10%;
       }
-      td {
+      th#quantity {
         text-align: left;
-        #number {
-          width: 10%;
-        }
-        #quantity {
-          width: 10%;
-        }
-        #material {
-          width: 40%;
-        }
-        #rate {
-          width: 15%;
-        }
+        padding-right: 5px;
+        width: 10%;
+      }
+      th#material {
+        text-align: left;
+        width: 40%;
+      }
+      th#rate {
+        text-align: right;
+        width: 15%;
+      }
+      th#total {
+        width: 25%;
+        text-align: right;
+      }
+
+      td#number {
+        text-align: left;
+        width: 10%;
+      }
+      td#quantity {
+        text-align: left;
+        padding-right: 5px;
+        width: 10%;
+      }
+      td#material {
+        text-align: left;
+        width: 40%;
+      }
+      td#rate {
+        text-align: right;
+        width: 15%;
+      }
+      td#total {
+        width: 25%;
+        text-align: right;
+      }
+      td#subtotal {
+        background-color: #FFCF7A;
+        text-align: right;
       }
     }
   }
@@ -68,141 +123,207 @@ div#show_equipmentals {
     border: 0;
     cellspacing: 5px;
     cellpadding: 0;
-    width: 80%;
+    width: 95%;
+    tr.odd {
+      background-color: #FFD0A4;
+    }
     tr {
-      .even {
-
-      }
-      .odd {
-
-      }
-      th {
+      th#number {
         text-align: left;
-        #number {
-          width: 10%;
-        }
-        #quantity {
-          width: 10%;
-        }
-        #equipmental {
-          width: 40%;
-        }
-        #rate {
-          width: 15%;
-        }
+        width: 10%;
       }
-      td {
+      th#quantity {
         text-align: left;
-        #number {
-          width: 10%;
-        }
-        #quantity {
-          width: 10%;
-        }
-        #equipmental {
-          width: 40%;
-        }
-        #rate {
-          width: 15%;
-        }
+        width: 10%;
+      }
+      th#equipmental {
+        text-align: left;
+        width: 40%;
+      }
+      th#rate {
+        text-align: right;
+        width: 15%;
+      }
+      th#total {
+        text-align: right;
+        width: 25%;
+      }
+      td#number {
+        text-align: left;
+        width: 10%;
+      }
+      td#quantity {
+        text-align: left;
+        width: 10%;
+      }
+      td#equipmental {
+        text-align: left;
+        width: 40%;
+      }
+      td#rate {
+        text-align: right;
+        width: 15%;
+      }
+      td#total {
+        text-align: right;
+        width: 15%;
+      }
+      td#subtotal {
+        background-color: #FFCF7A;
+        text-align: right;
       }
     }
   }
 }
 
 div#show_labors {
-
   table#labors_show {
     border: 0;
     cellspacing: 5px;
     cellpadding: 0;
-    width: 80%;
+    width: 95%;
+    tr.odd {
+      background-color: #FFD0A4;
+    }
     tr {
-      .even {
-
-      }
-      .odd {
-
-      }
-      th {
+      th#number {
         text-align: left;
-        #number {
-          width: 10%;
-        }
-        #quantity {
-          width: 10%;
-        }
-        #labor {
-          width: 40%;
-        }
-        #rate {
-          width: 15%;
-        }
+        width: 10%;
       }
-      td {
+      th#quantity {
         text-align: left;
-        #number {
-          width: 10%;
-        }
-        #quantity {
-          width: 10%;
-        }
-        #labor {
-          width: 40%;
-        }
-        #rate {
-          width: 15%;
-        }
+        width: 10%;
+      }
+      th#labor {
+        text-align: left;
+        width: 40%;
+      }
+      th#rate {
+        text-align: right;
+        width: 15%;
+      }
+      th#total {
+        text-align: right;
+        width: 25%;
+      }
+      td#number {
+        text-align: left;
+        width: 10%;
+      }
+      td#quantity {
+        text-align: left;
+        width: 10%;
+      }
+      td#labor {
+        text-align: left;
+        width: 40%;
+      }
+      td#rate {
+        text-align: right;
+        width: 15%;
+      }
+      td#total {
+        text-align: right;
+        width: 25%;
+      }
+      td#subtotal {
+        background-color: #FFCF7A;
+        text-align: right;
       }
     }
   }
+}
 
+div#show_vendors {
+  table#vendors_show {
+    border: 0;
+    cellspacing: 5px;
+    cellpadding: 0;
+    width: 95%;
+    tr.odd {
+      background-color: #FFD0A4;
+    }
+    tr {
+      th#number {
+        text-align: left;
+        width: 10%;
+      }
+      th#quantity {
+        text-align: left;
+        width: 10%;
+      }
+      th#description {
+        text-align: left;
+        width: 40%;
+      }
+      th#cost {
+        text-align: right;
+        width: 15%;
+      }
+      th#total {
+        text-align: right;
+        width: 25%;
+      }
+      th#subtotal {
+        background-color: #FFCF7A;
+        text-align: right;
+      }
+      td#number {
+        text-align: left;
+        width: 10%;
+      }
+      td#quantity {
+        text-align: left;
+        width: 10%;
+      }
+      td#description {
+        text-align: left;
+        width: 40%;
+      }
+      td#cost {
+        text-align: right;
+        width: 15%;
+      }
+      td#total {
+        text-align: right;
+        width: 25%;
+      }
+      td#subtotal {
+        background-color: #FFCF7A;
+        text-align: right;
+      }
+    }
+  }
 }
 
 div#order_materials_edit {
-
   table#editmaterials {
     border: 0;
     cellspacing: 5px;
     cellpadding: 0;
-    width: 80%;
+    width: 95%;
     tr {
-      .even {
-
-      }
-      .odd {
-
-      }
-      th {
+      th#quantity {
         text-align: left;
-        #quantity {
-          width: 10%;
-        }
-        #material {
-          width: 40%;
-        }
-        #rate {
-          width: 15%;
-        }
+        width: 10%;
       }
-      td {
+      th#material {
         text-align: left;
-        #quantity {
-          width: 10%;
-        }
-        #material {
-          width: 40%;
-        }
-        #rate {
-          width: 15%;
-        }
+        width: 50%;
+      }
+      td#quantity {
+        text-align: left;
+        width: 10%;
+      }
+      td#material {
+        text-align: left;
+        width: 50%;
       }
     }
   }
 }
 
 div#order_labors_edit {
-
   table#editlabors {
     border: 0;
     cellspacing: 5px;
@@ -210,10 +331,8 @@ div#order_labors_edit {
     width: 80%;
     tr {
       .even {
-
       }
       .odd {
-
       }
       th {
         text-align: left;
@@ -242,8 +361,8 @@ div#order_labors_edit {
     }
   }
 }
-div#order_equipmentals_edit {
 
+div#order_equipmentals_edit {
   table#editequipmentals {
     border: 0;
     cellspacing: 5px;
@@ -281,5 +400,82 @@ div#order_equipmentals_edit {
         }
       }
     }
+  }
+}
+
+div#order_vendors_edit {
+  table#editvendors {
+    border: 0;
+    cellspacing: 5px;
+    cellpadding: 0;
+    width: 95%;
+    tr {
+
+      th#quantity {
+        text-align: left;
+        width: 10%;
+      }
+      th#description {
+        text-align: left;
+        width: 50%;
+      }
+      th#cost {
+        text-align: right;
+        width: 15%;
+      }
+      td#description {
+        text-align: left;
+        width: 50%;
+      }
+      td#quantity {
+        width: 10%;
+        text-align: left;
+      }
+      td#cost {
+        width: 15%;
+        text-align: right;
+      }
+    }
+  }
+}
+
+.order_submission {
+  display: block;
+}
+
+p.clearboth {
+  clear: both;
+}
+
+table#costs {
+  width: 95%;
+  padding-left: 15px;
+  tr.odd {
+    background-color: #FFD0A4;
+  }
+  th#number {
+    text-align: left;
+  }
+  th#description {
+    text-align: left;
+  }
+  th#total {
+    text-align: right;
+  }
+  th#salesestimate {
+    text-align: right;
+  }
+  td#total {
+    text-align: right;
+  }
+  td#salesestimate {
+    background-color: #FFCF7A;
+    text-align: right;
+  }
+}
+
+table#order_index {
+  tr.odd {
+    background-color: #FFD0A4;
   }
 }

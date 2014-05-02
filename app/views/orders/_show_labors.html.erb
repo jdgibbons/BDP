@@ -9,16 +9,25 @@
         <th id="quantity">Qty</th>
         <th id="labor">Item</th>
         <th id="rate">Rate</th>
+        <th id="total">Total</th>
       </tr>
       </thead>
       <tbody class="items">
       <% @order.labor_line_items.each_with_index do |lab, index| %>
-
-        <tr class="<%= cycle("even", "odd") %>">
+        <tr class="<%= cycle("odd", "even") %>">
           <td id="number"><%= index + 1 %></td>
           <td id="quantity"><%= lab.quantity %>
           <td id="labor"><%= lab.labor.name %></td>
           <td id="rate"><%= lab.current_rate %></td>
+          <td id="total"><%= number_to_currency(lab.total_cost) %></td>
+        </tr>
+        <% @labors_subtotal += lab.total_cost %>
+      <% end %>
+      <% reset_cycle %>
+      <% if @labors_subtotal != 0.00 %>
+        <tr>
+          <td colspan="4">&nbsp;</td>
+          <td id="subtotal"><%= number_to_currency(@labors_subtotal.round(2)) %></td>
         </tr>
       <% end %>
       </tbody>

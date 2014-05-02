@@ -1,33 +1,65 @@
 <p id="notice"><%= notice %></p>
+<div id="ordervitals">
+  <p>
+    <strong>Order #:</strong>
+    <%= @order.order_number %>
+    <% if @order.work_order.nil? %>
+      <% @work_order = WorkOrder.new %>
+      <%= form_for(@work_order) do |f| %>
+        <%= f.hidden_field(:order_id, value: @order.id) %>
+        <%= f.submit 'Create Work Order' %>
+      <% end %>
+    <% end %>
+  </p>
 
-<p>
-  <strong>Order #:</strong>
-  <%= @order.order_number %>
-</p>
+  <p>
+    <strong>Customer:</strong>
+    <%= link_to @order.customer.name, @order.customer %>
+  </p>
+</div>
 
-<p>
-  <strong>Customer:</strong>
-  <%= link_to @order.customer.name, @order.customer %>
-</p>
+<div id="orderdates">
+  <p>
+    <strong>Date In:</strong>
+    <%= date_mdY(@order.created_at) %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @order.description %>
-</p>
+  <p>
+    <strong>Estimated Completion:</strong>
+    <%= date_mdY(@order.completion_date) %>
+  </p>
+</div>
+<p class="clearboth"><br/></p>
+
+<div id="fulldescription">
+  <p>
+    <strong>Description:</strong>
+    <%= @order.description %>
+  </p>
+</div>
 
 <p>
   <strong>Quantity:</strong>
   <%= @order.quantity %>
 </p>
 
+<div id="order_drop_downs">
   <div id="materialsvendors">
     <%= render 'show_materials' %>
+
+    <%= render 'show_vendors' %>
   </div>
 
   <div id="laborequipmentals">
     <%= render 'show_labors' %>
     <%= render 'show_equipmentals' %>
   </div>
+</div>
+<p class="clearboth"></p>
+<div id="costsummary">
+  <%= render 'costsummary' %>
+</div>
+<p class="clearboth"></p>
 
 
 <%= link_to 'Edit', edit_order_path(@order) %> |

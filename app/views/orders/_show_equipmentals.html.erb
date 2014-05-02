@@ -6,18 +6,27 @@
       <tr>
         <th id="number">No.</th>
         <th id="quantity">Qty</th>
-        <th id="equipmentals">Equipment</th>
+        <th id="equipmental">Equipment</th>
         <th id="rate">Price</th>
+        <th id="total">Total</th>
       </tr>
       </thead>
       <tbody class="items">
       <% @order.equipmental_line_items.each_with_index do |equip, index| %>
-
-        <tr class="<%= cycle("even", "odd") %>">
+        <tr class="<%= cycle("odd", "even") %>">
           <td id="number"><%= index + 1 %></td>
           <td id="quantity"><%= equip.quantity %>
-          <td id="equimentals"><%= equip.equipmental.name %></td>
+          <td id="equimental"><%= equip.equipmental.name %></td>
           <td id="rate"><%= equip.current_rate %></td>
+          <td id="total"><%= number_to_currency(equip.total_cost) %></td>
+        </tr>
+        <% @equipmentals_subtotal += equip.total_cost %>
+      <% end %>
+      <% reset_cycle %>
+      <% if @equipmentals_subtotal != 0.00 %>
+        <tr>
+          <td colspan="4">&nbsp;</td>
+          <td id="subtotal"><%= number_to_currency(@equipmentals_subtotal.round(2)) %></td>
         </tr>
       <% end %>
       </tbody>
