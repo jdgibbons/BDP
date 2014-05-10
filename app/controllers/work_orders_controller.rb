@@ -10,11 +10,13 @@ class WorkOrdersController < ApplicationController
   # GET /work_orders/1
   # GET /work_orders/1.json
   def show
+    @page_title = "work_orders"
   end
 
   # GET /work_orders/new
   def new
-    @work_order = WorkOrder.new
+    @page_title = "work_orders_new"
+    # @work_order = WorkOrder.new
   end
 
   # GET /work_orders/1/edit

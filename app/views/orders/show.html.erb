@@ -1,47 +1,35 @@
 <p id="notice"><%= notice %></p>
 <div id="ordervitals">
-  <p>
+  <div>
     <strong>Order #:</strong>
     <%= @order.order_number %>
     <% if @order.work_order.nil? %>
       <% @work_order = WorkOrder.new %>
-      <%= form_for(@work_order) do |f| %>
+      <%= form_for(@work_order, html: { class: "inline_form" }) do |f|  %>
         <%= f.hidden_field(:order_id, value: @order.id) %>
         <%= f.submit 'Create Work Order' %>
       <% end %>
     <% end %>
-  </p>
+  </div>
 
-  <p>
-    <strong>Customer:</strong>
-    <%= link_to @order.customer.name, @order.customer %>
-  </p>
+  <strong>Customer:</strong>
+  <%= link_to @order.customer.name, @order.customer %>
 </div>
 
 <div id="orderdates">
-  <p>
     <strong>Date In:</strong>
-    <%= date_mdY(@order.created_at) %>
-  </p>
-
-  <p>
+    <%= date_mdY(@order.created_at) %><br />
     <strong>Estimated Completion:</strong>
     <%= date_mdY(@order.completion_date) %>
-  </p>
 </div>
-<p class="clearboth"><br/></p>
+<p class="clearboth"></p>
 
 <div id="fulldescription">
-  <p>
-    <strong>Description:</strong>
-    <%= @order.description %>
-  </p>
-</div>
-
-<p>
   <strong>Quantity:</strong>
   <%= @order.quantity %>
-</p>
+    <strong>Description:</strong>
+    <%= @order.description %>
+</div>
 
 <div id="order_drop_downs">
   <div id="materialsvendors">

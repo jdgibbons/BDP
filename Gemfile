@@ -51,6 +51,12 @@ end
 # Dynamically add fields within nested attributes
 gem 'awesome_nested_fields'
 
+# Autocomplete search and other form fields
+gem 'rails4-autocomplete'
+
+
+gem 'autonumeric-rails'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

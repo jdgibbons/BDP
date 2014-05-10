@@ -6,7 +6,7 @@ class CustomersController < ApplicationController
   # GET /customers.json
   def index
     @page_title = "customers"
-    @customers = Customer.all
+    @customers = Customer.all.sort_by { |custard| custard.name }
   end
 
   # GET /customers/1

@@ -12,5 +12,6 @@ $(document).ready(function(e) {
         todayBtn: 'linked',
         autoclose: true
     });
+    $('.donuts').trigger('refresh_autonumeric')
 });
 $(document).on('page:load', ready);

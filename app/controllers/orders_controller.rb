@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
   before_filter :reparse_date, only: [:update, :create]
@@ -24,7 +25,7 @@ class OrdersController < ApplicationController
   # GET /orders/new
   def new
     @page_title = "orders"
-    @customers = Customer.all.sort_by { |cust| cust.name }
+    # @customers = Customer.all.sort_by { |cust| cust.name }
     @equipmentals = Equipmental.all.sort_by { |equipment| equipment.name }
     @materials = Material.all.sort_by { |matter| matter.name }
     @labors = Labor.all.sort_by { |lab| lab.name }
@@ -43,6 +44,9 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @page_title = "orders"
+    @equipmentals = Equipmental.all.sort_by { |equipment| equipment.name }
+    @materials = Material.all.sort_by { |matter| matter.name }
+    @labors = Labor.all.sort_by { |lab| lab.name }
     @order = Order.new(order_params)
 
     respond_to do |format|
@@ -99,7 +103,7 @@ class OrdersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:customer_id, :description, :quantity, :completion_date,
+      params.require(:order).permit(:customer_id, :description, :quantity, :completion_date, :incidentals,
                                     equipmental_line_items_attributes: [:id, :order_id, :equipmental_id, :quantity, :_destroy],
                                     labor_line_items_attributes: [:id, :order_id, :labor_id, :quantity, :_destroy],
                                     material_line_items_attributes: [:id, :order_id, :material_id, :quantity, :_destroy],

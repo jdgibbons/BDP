@@ -52,7 +52,13 @@
       <%= render :partial => "equipmentals", :locals => {:f => f} %>
     </div>
   </div>
+
   <p class="clearboth"></p>
+
+  <div class="field" style="padding-top: 8px;">
+    <%= f.label :incidentals %>
+    <%= f.text_field :incidentals, data: {autonumeric: {aSign: '$', mDec: 2}}, class: 'donuts', style: "text-align: right" %>
+  </div>
 
   <div id="order_submit">
     <div class="actions">

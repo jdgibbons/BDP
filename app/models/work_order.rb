@@ -1,15 +1,15 @@
 class WorkOrder < ActiveRecord::Base
   belongs_to :order
-  has_many :wo_equipmental_line_items
-  has_many :wo_labor_line_items
-  has_many :wo_material_line_items
+  has_many :wo_equipmental_line_items, dependent: :destroy
+  has_many :wo_labor_line_items, dependent: :destroy
+  has_many :wo_material_line_items, dependent: :destroy
 
-  after_save :copy_order_information
+  after_create :copy_order_information
 
   def copy_order_information
-    if quantity != order.quantity
       self.description = order.description
       self.quantity = order.quantity
+      self.completion_date = order.completion_date
       self.save
 
       order.equipmental_line_items.each do |equip|
@@ -32,7 +32,6 @@ class WorkOrder < ActiveRecord::Base
         woli.quantity = matter.quantity
         self.wo_material_line_items << woli
       end
-    end
   end
 
 end

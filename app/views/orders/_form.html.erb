@@ -11,14 +11,20 @@
     </div>
   <% end %>
 
+
   <div class="field">
-    <%= f.label :customer_id %>
-    <%= f.select :customer_id, options_for_select(@customers.collect { |custard| [custard.name, custard.id] }) %>
+    <% if not @customer_is_new %>
+      <%= f.label :customer %>
+      <%= f.hidden_field :customer_id %>
+      <%= f.autocomplete_field :customer, autocomplete_customer_name_suggestions_path, :id_element => '#order_customer_id' %>
+    <% else %>
+      <%= f.hidden_field :customer_id, "#{@customer.id}" %>
+      <%= @customer.name %>
+    <% end %>
   </div>
 
   <div class="field">
     <%= f.label :completion_date %>
-    <br/>
     <%= f.text_field :completion_date, :value => date_mdY(@order.completion_date), :class => 'datepicker', style: "text-align: right" %>
   </div>
 
@@ -47,7 +53,7 @@
 
   <div class="field">
     <%= f.label :incidentals %>
-    <%= f.number_field :incidentals %>
+    <%= f.text_field :incidentals, data: {autonumeric: {aSign: '$', mDec: 2}}, class: 'donuts', style: "text-align: right" %>
   </div>
 
   <div id="order_submit">

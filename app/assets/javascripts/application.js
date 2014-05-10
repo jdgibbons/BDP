@@ -12,8 +12,11 @@
 //
 //= require jquery
 //= require jquery.ui.datepicker
+//= require jquery.ui.autocomplete
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require autocomplete-rails
+//= require autonumeric
 //= require_tree .
 //= require jquery.nested-fields
 //= require turbolinks

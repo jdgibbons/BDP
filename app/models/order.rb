@@ -6,6 +6,8 @@ class Order < ActiveRecord::Base
   has_many :vendors, dependent: :destroy
   has_one :work_order
 
+  validates_presence_of :customer
+
   after_save :set_current_equipmentals_li_rate, :set_current_materials_li_rate,
              :set_current_labors_li_rate, :calculate_vendor_total, :calculate_cost_of_goods
 

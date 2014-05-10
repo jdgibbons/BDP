@@ -28,6 +28,10 @@ BDP::Application.routes.draw do
 
   resources :labors
 
+  resources :suggestions do
+    get :autocomplete_customer_name, on: :collection
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

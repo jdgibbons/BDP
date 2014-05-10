@@ -67,50 +67,28 @@ div#show_materials {
       background-color: #FFD0A4;
     }
     tr {
-      th#number {
+      #number {
         text-align: left;
         width: 10%;
       }
-      th#quantity {
+      #quantity {
         text-align: left;
         padding-right: 5px;
         width: 10%;
       }
-      th#material {
+      #material {
         text-align: left;
         width: 40%;
       }
-      th#rate {
+      #rate {
         text-align: right;
         width: 15%;
       }
-      th#total {
-        width: 25%;
+      #total {
+        width: 20%;
         text-align: right;
       }
-
-      td#number {
-        text-align: left;
-        width: 10%;
-      }
-      td#quantity {
-        text-align: left;
-        padding-right: 5px;
-        width: 10%;
-      }
-      td#material {
-        text-align: left;
-        width: 40%;
-      }
-      td#rate {
-        text-align: right;
-        width: 15%;
-      }
-      td#total {
-        width: 25%;
-        text-align: right;
-      }
-      td#subtotal {
+      #subtotal {
         background-color: #FFCF7A;
         text-align: right;
       }
@@ -128,47 +106,27 @@ div#show_equipmentals {
       background-color: #FFD0A4;
     }
     tr {
-      th#number {
+      #number {
         text-align: left;
         width: 10%;
       }
-      th#quantity {
+      #quantity {
         text-align: left;
         width: 10%;
       }
-      th#equipmental {
+      #equipmental {
         text-align: left;
         width: 40%;
       }
-      th#rate {
+      #rate {
         text-align: right;
         width: 15%;
       }
-      th#total {
+      #total {
         text-align: right;
-        width: 25%;
+        width: 20%;
       }
-      td#number {
-        text-align: left;
-        width: 10%;
-      }
-      td#quantity {
-        text-align: left;
-        width: 10%;
-      }
-      td#equipmental {
-        text-align: left;
-        width: 40%;
-      }
-      td#rate {
-        text-align: right;
-        width: 15%;
-      }
-      td#total {
-        text-align: right;
-        width: 15%;
-      }
-      td#subtotal {
+      #subtotal {
         background-color: #FFCF7A;
         text-align: right;
       }
@@ -186,47 +144,27 @@ div#show_labors {
       background-color: #FFD0A4;
     }
     tr {
-      th#number {
+      #number {
         text-align: left;
         width: 10%;
       }
-      th#quantity {
+      #quantity {
         text-align: left;
         width: 10%;
       }
-      th#labor {
+      #labor {
         text-align: left;
         width: 40%;
       }
-      th#rate {
+      #rate {
         text-align: right;
         width: 15%;
       }
-      th#total {
+      #total {
         text-align: right;
-        width: 25%;
+        width: 20%;
       }
-      td#number {
-        text-align: left;
-        width: 10%;
-      }
-      td#quantity {
-        text-align: left;
-        width: 10%;
-      }
-      td#labor {
-        text-align: left;
-        width: 40%;
-      }
-      td#rate {
-        text-align: right;
-        width: 15%;
-      }
-      td#total {
-        text-align: right;
-        width: 25%;
-      }
-      td#subtotal {
+      #subtotal {
         background-color: #FFCF7A;
         text-align: right;
       }
@@ -244,51 +182,27 @@ div#show_vendors {
       background-color: #FFD0A4;
     }
     tr {
-      th#number {
+      #number {
         text-align: left;
         width: 10%;
       }
-      th#quantity {
+      #quantity {
         text-align: left;
         width: 10%;
       }
-      th#description {
+      #description {
         text-align: left;
         width: 40%;
       }
-      th#cost {
+      #cost {
         text-align: right;
         width: 15%;
       }
-      th#total {
+      #total {
         text-align: right;
-        width: 25%;
+        width: 20%;
       }
-      th#subtotal {
-        background-color: #FFCF7A;
-        text-align: right;
-      }
-      td#number {
-        text-align: left;
-        width: 10%;
-      }
-      td#quantity {
-        text-align: left;
-        width: 10%;
-      }
-      td#description {
-        text-align: left;
-        width: 40%;
-      }
-      td#cost {
-        text-align: right;
-        width: 15%;
-      }
-      td#total {
-        text-align: right;
-        width: 25%;
-      }
-      td#subtotal {
+      #subtotal {
         background-color: #FFCF7A;
         text-align: right;
       }
@@ -303,19 +217,11 @@ div#order_materials_edit {
     cellpadding: 0;
     width: 95%;
     tr {
-      th#quantity {
+      #quantity {
         text-align: left;
         width: 10%;
       }
-      th#material {
-        text-align: left;
-        width: 50%;
-      }
-      td#quantity {
-        text-align: left;
-        width: 10%;
-      }
-      td#material {
+      #material {
         text-align: left;
         width: 50%;
       }
@@ -330,33 +236,17 @@ div#order_labors_edit {
     cellpadding: 0;
     width: 80%;
     tr {
-      .even {
-      }
-      .odd {
-      }
-      th {
+      #quantity {
+        width: 10%;
         text-align: left;
-        #quantity {
-          width: 10%;
-        }
-        #labor {
-          width: 40%;
-        }
-        #rate {
-          width: 15%;
-        }
       }
-      td {
+      #labor {
+        width: 40%;
         text-align: left;
-        #quantity {
-          width: 10%;
-        }
-        #labor {
-          width: 40%;
-        }
-        #rate {
-          width: 15%;
-        }
+      }
+      #rate {
+        width: 15%;
+        text-align: right;
       }
     }
   }
@@ -475,7 +365,25 @@ table#costs {
 }
 
 table#order_index {
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
   tr.odd {
     background-color: #FFD0A4;
   }
+  #numby, #customer, #description, #quantity {
+    text-align: left;
+  }
+  #quants {
+    text-align: right;
+    padding-right: 5px;
+  }
+}
+
+form.inline_form {
+  display: inline;
+}
+
+h1.centerme {
+  text-align: center;
 }

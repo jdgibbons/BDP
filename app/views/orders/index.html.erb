@@ -1,12 +1,11 @@
-<h1>Orders</h1>
-
+<h1 class="centerme">Orders</h1>
 <table id="order_index">
   <thead>
     <tr>
-      <th>No.</th>
-      <th>Customer</th>
-      <th>Description</th>
-      <th>Quantity</th>
+      <th id="numby">Number</th>
+      <th id="customer">Customer</th>
+      <th id="description">Description</th>
+      <th id="quantity">Quantity</th>
       <th></th>
       <th></th>
       <th></th>
@@ -16,10 +15,10 @@
   <tbody>
     <% @orders.each do |order| %>
       <tr class="<%= cycle 'odd', 'even' %>">
-        <td><%= link_to order.order_number, order %></td>
-        <td><%= order.customer.name %></td>
-        <td><%= order.description %></td>
-        <td><%= order.quantity %></td>
+        <td id="numby"><%= link_to order.order_number, order %></td>
+        <td id="customer"><%= link_to order.customer.name, order.customer %></td>
+        <td id="description"><%= order.description %></td>
+        <td id="quants"><%= order.quantity %></td>
         <td><%= link_to 'Show', order %></td>
         <td><%= link_to 'Edit', edit_order_path(order) %></td>
         <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
