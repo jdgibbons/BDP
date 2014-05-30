@@ -1,19 +1,19 @@
-<div id="order_equipmentals_edit">
+<div id="order_labors_edit">
   <fieldset>
-    <legend>Equipment</legend>
-    <table id="editequipmentals">
+    <legend>Labor</legend>
+    <table id="editlabors">
       <thead>
       <tr>
         <th id="quantity">Quantity</th>
-        <th id="equipmental">Item</th>
+        <th id="labor">Item</th>
         <th></th>
       </tr>
       </thead>
       <tbody class="items">
-      <%= f.nested_fields_for :equipmental_line_items do |f| %>
+      <%= f.nested_fields_for :wo_labor_line_items do |f| %>
         <tr class="item">
           <td id="quantity"><%= f.number_field :quantity %></td>
-          <td id="equipmental"><%= f.select :equipmental_id, @equipmentals.map { |equip| [equip.name, equip.id] } %></td>
+          <td id="labor"><%= f.select :labor_id, @labors.map { |lab| [lab.name, lab.id] } %></td>
           <td>
             <a href="#" class="remove">remove</a>
             <%= f.hidden_field :_destroy %>
@@ -22,6 +22,6 @@
       <% end %>
       </tbody>
     </table>
-    <a href="#" class="add">add equipment</a>
+    <a href="#" class="add">add labor</a>
   </fieldset>
 </div>

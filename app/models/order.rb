@@ -4,11 +4,12 @@ class Order < ActiveRecord::Base
   has_many :labor_line_items, dependent: :destroy
   has_many :equipmental_line_items, dependent: :destroy
   has_many :vendors, dependent: :destroy
-  has_one :work_order
+  has_one :work_order, dependent: :destroy
 
-  validates_presence_of :customer
+  validates_presence_of :customer, :quantity
+  validates_numericality_of :quantity
 
-  after_save :set_current_equipmentals_li_rate, :set_current_materials_li_rate,
+  after_save :check_for_duplicate_line_items, :set_current_equipmentals_li_rate, :set_current_materials_li_rate,
              :set_current_labors_li_rate, :calculate_vendor_total, :calculate_cost_of_goods
 
   accepts_nested_attributes_for :equipmental_line_items, allow_destroy: true,
@@ -22,11 +23,17 @@ class Order < ActiveRecord::Base
 
   accepts_nested_attributes_for :vendors, allow_destroy: true,
                                 reject_if: proc { |attr| attr['description'].blank? ||
-                                                         attr['quantity'].blank? ||
-                                                         attr['cost'].blank? }
+                                    attr['quantity'].blank? ||
+                                    attr['cost'].blank? }
 
   def check_material_line_item(attributed)
     attributed['quantity'].blank? || Integer(attributed['quantity']) < 1
+  end
+
+  # This is actually the order number without the work order or invoice numbers attached
+  def quote_number
+    quote_no = "BDP"
+    quote_no += sprintf '%06i', id
   end
 
   def order_number
@@ -101,6 +108,74 @@ class Order < ActiveRecord::Base
     if self.cost_of_goods != costiness
       self.cost_of_goods = costiness
       self.save
+    end
+  end
+
+  def check_for_duplicate_line_items
+    if not material_line_items.nil?
+      mlis = material_line_items.map { |mli| mli.material_id }
+      mli_dupes = Array.new
+      if mlis != mlis.uniq
+        ml_size = material_line_items.size
+        material_line_items.each_with_index do |matter, indy|
+          ((indy + 1)..(ml_size - 1)).each do |innie|
+            inner_mli = material_line_items.to_a[innie]
+            if matter.material_id == inner_mli.material_id
+              matter.quantity += inner_mli.quantity
+              inner_mli.quantity = 0
+              matter.save
+              mli_dupes << inner_mli
+            end
+          end
+        end
+        mli_dupes.each do |d_mli|
+          material_line_items.where(id: d_mli.id).delete_all
+        end
+      end
+    end
+
+    if not equipmental_line_items.nil?
+      elis = equipmental_line_items.map { |eli| eli.equipmental_id }
+      eli_dupes = Array.new
+      if elis != elis.uniq
+        el_size = equipmental_line_items.size
+        equipmental_line_items.each_with_index do |equip, indy|
+          ((indy + 1)..(el_size - 1)).each do |innie|
+            inner_eli = equipmental_line_items.to_a[innie]
+            if equip.equipmental_id == inner_eli.equipmental_id
+              equip.quantity += inner_eli.quantity
+              inner_eli.quantity = 0
+              equip.save
+              eli_dupes << inner_eli
+            end
+          end
+        end
+        eli_dupes.each do |d_eli|
+          equipmental_line_items.where(id: d_eli.id).delete_all
+        end
+      end
+    end
+
+    if not labor_line_items.nil?
+      llis = labor_line_items.map { |lli| lli.labor_id }
+      lli_dupes = Array.new
+      if llis != elis.uniq
+        ll_size = labor_line_items.size
+        labor_line_items.each_with_index do |lab, indy|
+          ((indy + 1)..(ll_size - 1)).each do |innie|
+            inner_lli = labor_line_items.to_a[innie]
+            if lab.labor_id == inner_lli.labor_id
+              lab.quantity += inner_lli.quantity
+              inner_lli.quantity = 0
+              lab.save
+              lli_dupes << inner_lli
+            end
+          end
+        end
+        lli_dupes.each do |d_lli|
+          labor_line_items.where(id: d_lli.id).delete_all
+        end
+      end
     end
   end
 end

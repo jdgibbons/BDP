@@ -11,14 +11,46 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
+  <div id="work_order_vitals_edit">
+    <div class="field">
+      <b><%= f.label :customer %>: <%= @work_order.order.customer.name %></b>
+    </div>
+
+    <div class="field">
+      <b><%= f.label :order %>: <%= @work_order.order.order_number %></b>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :quantity %><br>
-    <%= f.text_field :quantity %>
+
+  <div id="work_order_dates">
+    <div class="field">
+      <b><%= f.label :completion_date %></b>
+      <%= f.text_field :completion_date, :value => date_mdY(@work_order.completion_date), :class => 'datepicker', style: "text-align: right" %>
+    </div>
+
+    <div class="field">
+      <b><%= f.label :quantity %></b>
+      <%= f.number_field :quantity %>
+    </div>
   </div>
+
+  <p class="clearboth"></p>
+
+  <div id="edit_wo_description">
+    <div class="field">
+      <b><%= f.label :description, style: "vertical-align: top;" %></b>
+      <%= f.text_area :description, cols: 60, rows: 2 %>
+    </div>
+  </div>
+
+  <p class="clearboth"></p>
+
+      <%= render :partial => "materials", :locals => {:f => f} %>
+      <%= render :partial => "vendors", :locals => {:f => f} %>
+
+      <%= render :partial => "labors", :locals => {:f => f} %>
+      <%= render :partial => "equipmentals", :locals => {:f => f} %>
+
+
   <div class="actions">
     <%= f.submit %>
   </div>

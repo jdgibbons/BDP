@@ -1,31 +1,30 @@
 <h1 class="centerme">Orders</h1>
+<%= will_paginate %>
+
 <table id="order_index">
   <thead>
     <tr>
       <th id="numby">Number</th>
       <th id="customer">Customer</th>
       <th id="description">Description</th>
-      <th id="quantity">Quantity</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th id="quants">Qty</th>
+      <th id="actions"></th>
     </tr>
   </thead>
-
   <tbody>
     <% @orders.each do |order| %>
-      <tr class="<%= cycle 'odd', 'even' %>">
-        <td id="numby"><%= link_to order.order_number, order %></td>
+      <tr class="expander <%= cycle 'odd', 'even' %>">
+        <td id="numby"><%= generate_order_number_with_links(order) %></td>
         <td id="customer"><%= link_to order.customer.name, order.customer %></td>
         <td id="description"><%= order.description %></td>
         <td id="quants"><%= order.quantity %></td>
-        <td><%= link_to 'Show', order %></td>
-        <td><%= link_to 'Edit', edit_order_path(order) %></td>
-        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td id="actions"><%= link_to 'Delete', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
+
 </table>
+<%= will_paginate %>
 <% reset_cycle %>
 <br>
 <%= link_to 'New Order', new_order_path %>

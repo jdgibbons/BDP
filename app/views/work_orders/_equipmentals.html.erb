@@ -10,7 +10,7 @@
       </tr>
       </thead>
       <tbody class="items">
-      <%= f.nested_fields_for :equipmental_line_items do |f| %>
+      <%= f.nested_fields_for :wo_equipmental_line_items do |f| %>
         <tr class="item">
           <td id="quantity"><%= f.number_field :quantity %></td>
           <td id="equipmental"><%= f.select :equipmental_id, @equipmentals.map { |equip| [equip.name, equip.id] } %></td>

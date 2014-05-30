@@ -12,39 +12,31 @@
   <% end %>
 
 
-  <div class="field">
-    <% if not @customer_is_new %>
-      <%= f.label :customer %>
-      <%= f.hidden_field :customer_id %>
-      <%= f.autocomplete_field :customer, autocomplete_customer_name_suggestions_path, :id_element => '#order_customer_id' %>
-    <% else %>
-      <%= f.hidden_field :customer_id, "#{@customer.id}" %>
-      <%= @customer.name %>
-    <% end %>
-  </div>
+  <div class="field" id="new_order_vitals">
+    <%= f.label :customer %>
+    <%= f.hidden_field :customer_id %>
+    <%= f.autocomplete_field :customer, autocomplete_customer_name_suggestions_path, :id_element => '#order_customer_id', size: 40 %><br />
 
-  <div class="field">
     <%= f.label :completion_date %>
-    <%= f.text_field :completion_date, :value => date_mdY(@order.completion_date), :class => 'datepicker', style: "text-align: right" %>
+    <%= f.text_field :completion_date, :value => date_mdY(@order.completion_date), :class => 'datepicker', style: "text-align: right" %><br />
+
+    <%= f.label :quantity %>
+    <%= f.number_field :quantity %>
   </div>
 
-  <div class="field">
+  <div class="field" id="new_description">
     <%= f.label :description %>
     <br>
     <%= f.text_area :description, cols: 60, rows: 10 %>
   </div>
 
-  <div class="field">
-    <%= f.label :quantity %>
-    <br>
-    <%= f.number_field :quantity %>
-  </div>
+  <p class="clearboth"></p>
 
-  <div id="materialsvendors">
+  <div id="materials_and_vendors">
     <%= render :partial => "materials", :locals => {:f => f} %>
     <%= render :partial => "vendors", :locals => {:f => f} %>
   </div>
-  <div id="laborequipmentals">
+  <div id="labor_and_equipmentals">
     <%= render :partial => "labors", :locals => {:f => f} %>
     <%= render :partial => "equipmentals", :locals => {:f => f} %>
   </div>

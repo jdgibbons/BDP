@@ -1,0 +1,9 @@
+div#break_it {
+    margin: 0;
+    padding: 0;
+}
+p#notice {
+    margin-top: 0;
+    padding-top: 10px;
+    padding-bottom: 0;
+}

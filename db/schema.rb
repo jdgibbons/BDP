@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140505174741) do
+ActiveRecord::Schema.define(version: 20140514190731) do
 
   create_table "contacts", force: true do |t|
     t.string   "name"
@@ -109,7 +109,7 @@ ActiveRecord::Schema.define(version: 20140505174741) do
     t.datetime "updated_at"
     t.integer  "customer_id"
     t.date     "completion_date"
-    t.decimal  "incidentals",       precision: 10, scale: 0, default: 0
+    t.decimal  "incidentals",       precision: 10, scale: 2, default: 0.0
     t.decimal  "market_adjustment", precision: 10, scale: 2
     t.decimal  "cost_of_goods",     precision: 10, scale: 2
     t.decimal  "sales_commission",  precision: 10, scale: 2
@@ -135,6 +135,8 @@ ActiveRecord::Schema.define(version: 20140505174741) do
     t.integer  "equipmental_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "current_rate",   precision: 10, scale: 2
+    t.decimal  "total_cost",     precision: 10, scale: 2
   end
 
   create_table "wo_labor_line_items", force: true do |t|
@@ -143,12 +145,26 @@ ActiveRecord::Schema.define(version: 20140505174741) do
     t.integer  "labor_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "current_rate",  precision: 10, scale: 2
+    t.decimal  "total_cost",    precision: 10, scale: 2
   end
 
   create_table "wo_material_line_items", force: true do |t|
     t.integer  "work_order_id"
     t.integer  "quantity"
     t.integer  "material_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.decimal  "current_rate",  precision: 10, scale: 2
+    t.decimal  "total_cost",    precision: 10, scale: 2
+  end
+
+  create_table "wo_vendors", force: true do |t|
+    t.text     "description"
+    t.integer  "quantity"
+    t.decimal  "cost",          precision: 10, scale: 2
+    t.integer  "work_order_id"
+    t.decimal  "total_cost",    precision: 10, scale: 2
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,34 +1,29 @@
-<h1>Listing work_orders</h1>
+<h1 class="centerme">Work Orders</h1>
 
-<table>
+<table id="work_order_index">
   <thead>
     <tr>
-      <th>Order</th>
-      <th>Description</th>
-      <th>Quantity</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th id="numby">Number</th>
+      <th id="customer">Customer</th>
+      <th id="description">Description</th>
+      <th id="quants">Qty</th>
+      <th id="actions"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @work_orders.each do |work_order| %>
-      <tr>
-        <td><%= work_order.order.order_number %></td>
-        <td><%= work_order.description %></td>
-        <td><%= work_order.quantity %></td>
-        <td><%= link_to 'Show', work_order %></td>
-        <td><%= link_to 'Edit', edit_work_order_path(work_order) %></td>
-        <td><%= link_to 'Destroy', work_order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <tr class="expander <%= cycle 'odd', 'even' %>">
+        <td id="numby"><%= generate_order_number_with_links(work_order.order) %></td>
+        <td id="customer"><%= link_to work_order.order.customer.name, work_order.order.customer %></td>
+        <td id="description"><%= work_order.description %></td>
+        <td id="quants"><%= work_order.quantity %></td>
+        <td id="actions"><%= link_to 'Delete', work_order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Work order', new_work_order_path %>
 <p>&nbsp;<br />&nbsp;</p>
 
 <%= link_to 'Home', root_url %>

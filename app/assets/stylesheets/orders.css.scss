@@ -2,16 +2,36 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 html.orders {
+  font-family: "Trebuchet MS";
+  font-size: 100%;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
   background: #FFE0C2;
 }
 
 body.orders {
+  font-family: "Trebuchet MS";
+  font-size: 100%;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
   background: #FFE0C2;
 }
 
-div#order_drop_downs {
-  display: block;
+div#order_page_title {
   width: 100%;
+  text-align: center;
 }
 
 form div#order_submit {
@@ -21,7 +41,100 @@ form div#order_submit {
   margin-top: 20px;
 }
 
-div#fulldescription {
+div#new_order_vitals {
+  width: 45%;
+  padding-left: 7px;
+  float: left;
+}
+
+div#new_description {
+  width: 50%;
+  float: right;
+}
+
+// Customer and order number
+div#order_vitals {
+  width: 60%;
+  float: left;
+  padding-top: 0;
+  padding-left: 7px;
+  span#numerical {
+    padding-top: 5px;
+  }
+}
+// Edit form customer and order number
+div#order_vitals_edit {
+  width: 60%;
+  float: left;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 7px;
+  .field {
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 5pt;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+  }
+  span#numerical {
+    padding-top: 5px;
+    padding-right: 0;
+    padding-left: 0;
+    padding-bottom: 0;
+  }
+}
+
+// Creation and estimated completion dates
+div#order_dates {
+  width: 25%;
+  float: right;
+  text-align: right;
+  padding-top: 0;
+  padding-right: 10%;
+  .field {
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 5pt;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+  }
+}
+
+// Order quantity and description
+div#quantity_and_description {
+  display: block;
+  width: 100%;
+  margin-top: 5px;
+  padding-bottom: 0;
+  padding-left: 7px;
+  div#quantity {
+    width: 15%;
+    padding-top: 0;
+    padding-bottom: 0;
+    float: left;
+  }
+  div#description_title {
+    float: left;
+    padding-top: 0;
+    padding-bottom: 0;
+    width: 10%;
+  }
+  div#description {
+    width: 75%;
+    padding-top: 0;
+    padding-bottom: 0;
+    float: right;
+  }
+}
+
+// Materials, vendors, equipment(als), and labor
+div#order_drop_downs {
   display: block;
   width: 100%;
 }
@@ -30,29 +143,20 @@ div#submission {
   display: block;
 }
 
-div#ordervitals {
-  width: 60%;
-  float: left;
-}
-
-div#orderdates {
-  width: 30%;
-  float: right;
-  text-align: right;
-  padding-right: 10%;
-}
-
-div#materialsvendors {
+// Materials and vendors
+div#materials_and_vendors {
   width: 50%;
   float: left;
 }
 
-div#laborequipmentals {
+// Labor and equipment(als)
+div#labor_and_equipmentals {
   width: 50%;
   float: right;
 }
 
-div#costsummary {
+// Subtotals, incidentals, cost of goods, profit, and other things
+div#cost_summary {
   width: 50%;
   float: right;
 }
@@ -210,8 +314,67 @@ div#show_vendors {
   }
 }
 
+div#edit_description {
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 5pt;
+  margin-left: 0;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 7px;
+  .field {
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 5pt;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+  }
+}
+
+div#order_drop_down_edits {
+  display: block;
+  width: 100%;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+}
+
+div#materials_and_vendors_edit {
+  width: 50%;
+  float: left;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+}
+div#labor_and_equipmentals_edit {
+  width: 50%;
+  float: right;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+}
+
 div#order_materials_edit {
-  table#editmaterials {
+  table#edit_materials {
     border: 0;
     cellspacing: 5px;
     cellpadding: 0;
@@ -219,7 +382,7 @@ div#order_materials_edit {
     tr {
       #quantity {
         text-align: left;
-        width: 10%;
+        width: 20%;
       }
       #material {
         text-align: left;
@@ -237,7 +400,7 @@ div#order_labors_edit {
     width: 80%;
     tr {
       #quantity {
-        width: 10%;
+        width: 20%;
         text-align: left;
       }
       #labor {
@@ -259,35 +422,17 @@ div#order_equipmentals_edit {
     cellpadding: 0;
     width: 80%;
     tr {
-      .even {
-
-      }
-      .odd {
-
-      }
-      th {
+      #quantity {
+        width: 20%;
         text-align: left;
-        #quantity {
-          width: 10%;
-        }
-        #equipmental {
-          width: 40%;
-        }
-        #rate {
-          width: 15%;
-        }
       }
-      td {
+      #equipmental {
+        width: 40%;
         text-align: left;
-        #quantity {
-          width: 10%;
-        }
-        #equipmental {
-          width: 40%;
-        }
-        #rate {
-          width: 15%;
-        }
+      }
+      #rate {
+        width: 15%;
+        text-align: left;
       }
     }
   }
@@ -300,30 +445,17 @@ div#order_vendors_edit {
     cellpadding: 0;
     width: 95%;
     tr {
-
-      th#quantity {
+      #quantity {
         text-align: left;
-        width: 10%;
+        width: 20%;
       }
-      th#description {
-        text-align: left;
-        width: 50%;
-      }
-      th#cost {
-        text-align: right;
-        width: 15%;
-      }
-      td#description {
+      #description {
         text-align: left;
         width: 50%;
       }
-      td#quantity {
-        width: 10%;
-        text-align: left;
-      }
-      td#cost {
-        width: 15%;
+      #cost {
         text-align: right;
+        width: 15%;
       }
     }
   }
@@ -334,6 +466,15 @@ div#order_vendors_edit {
 }
 
 p.clearboth {
+  font-size: 0.1em;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
   clear: both;
 }
 
@@ -371,14 +512,34 @@ table#order_index {
   tr.odd {
     background-color: #FFD0A4;
   }
-  #numby, #customer, #description, #quantity {
+  #numby {
     text-align: left;
+    width: 13%;
+  }
+  #customer {
+    text-align: left;
+    width: 18%;
+  }
+  #description {
+    text-align: left;
+    width: 49%;
+  }
+  #quantity {
+    text-align: left;
+    width: 10%;
+  }
+  #actions {
+    text-align: left;
+    padding-left: 10px;
+    width: 10%;
   }
   #quants {
     text-align: right;
     padding-right: 5px;
+    width: 10%;
   }
 }
+
 
 form.inline_form {
   display: inline;
@@ -386,4 +547,39 @@ form.inline_form {
 
 h1.centerme {
   text-align: center;
+}
+
+
+div.pagination {
+  text-align: center;
+  padding: 1em;
+  cursor: default;
+  a, span {
+    padding: 0.2em 0.3em;
+  }
+  .disabled {
+    color: #aaaaaa;
+  }
+  .current {
+    font-style: normal;
+    font-weight: bold;
+    background-color: darken(#FFE0C2, 15);
+    display: inline-block;
+    width: 1.4em;
+    height: 1.4em;
+    line-height: 1.5;
+    -moz-border-radius: 1em;
+    -webkit-border-radius: 1em;
+    border-radius: 1em;
+    text-shadow: rgba(white, .8) 1px 1px 1px;
+  }
+  a {
+    text-decoration: none;
+    color: black;
+    &:hover, &:focus {
+      text-decoration: underline;
+      background: grey;
+      color: white;
+    }
+  }
 }

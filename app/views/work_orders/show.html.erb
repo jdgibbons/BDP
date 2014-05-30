@@ -1,24 +1,48 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Invoice:</strong>
-  <%= @work_order.order.order_number %>
-</p>
-
-<p>
+<div id="work_order_vitals">
+  <strong>Order:</strong>
+  <%= generate_order_number_with_links(@work_order.order) %><br />
   <strong>Customer:</strong>
   <%= link_to @work_order.order.customer.name, @work_order.order.customer %>
-</p>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @work_order.description %>
-</p>
+<div id="work_order_dates">
+    <strong>Date In:</strong>
+    <%= date_mdY(@work_order.created_at) %><br />
+    <strong>Estimated Completion:</strong>
+    <%= date_mdY(@work_order.completion_date) %>
+</div>
 
-<p>
-  <strong>Quantity:</strong>
-  <%= @work_order.quantity %>
-</p>
+<p class="clearboth"></p>
+
+<div id="wo_quantity_and_description">
+  <div id="quantity">
+    <strong>Quantity:</strong>
+    <%= @work_order.quantity %>
+  </div>
+  <div id="description_title">
+    <strong>Description:</strong>
+  </div>
+  <div id="description">
+    <%= @work_order.description %>
+  </div>
+</div>
+
+<div id="wo_order_drop_downs">
+  <div id="wo_materials_and_vendors">
+    <%= render 'show_materials' %>
+
+    <%= render 'show_vendors' %>
+  </div>
+
+  <div id="wo_labor_and_equipmentals">
+    <%= render 'show_labors' %>
+    <%= render 'show_equipmentals' %>
+  </div>
+</div>
+
+<p class="clearboth"></p>
 
 <%= link_to 'Edit', edit_work_order_path(@work_order) %> |
 <%= link_to 'Back', work_orders_path %>

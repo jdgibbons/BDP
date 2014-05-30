@@ -1,3 +1,357 @@
 // Place all the styles related to the WorkOrders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+html.work_orders {
+  font-family: "Trebuchet MS";
+  font-size: 100%;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  background: #CDFFEE;
+}
+
+body.work_orders {
+  font-family: "Trebuchet MS";
+  font-size: 100%;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  background: #CDFFEE;
+}
+
+// Customer and order number
+div#work_order_vitals {
+  width: 60%;
+  padding-left: 7px;
+  float: left;
+}
+
+// Creation and estimated completion dates
+div#work_order_dates {
+  width: 30%;
+  float: right;
+  text-align: right;
+  padding-right: 6%;
+}
+
+// Materials and vendors
+div#wo_materials_and_vendors {
+  width: 50%;
+  float: left;
+}
+
+// Labor and equipment(als)
+div#wo_labor_and_equipmentals {
+  width: 50%;
+  float: right;
+}
+
+
+p.clearboth {
+  font-size: 0.1em;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  clear: both;
+}
+
+// Workorder quantity and description
+div#wo_quantity_and_description {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  padding-bottom: 30px;
+  padding-left: 7px;
+  div#quantity {
+    width: 15%;
+    float: left;
+  }
+  div#description_title {
+    float: left;
+    text-align: right;
+    width: 10%;
+  }
+  div#description {
+    width: 73%;
+    padding-right: 10px;
+    float: right;
+  }
+}
+// Materials, vendors, equipment(als), and labor
+div#wo_order_drop_downs {
+  display: block;
+  width: 100%;
+}
+
+div#wo_show_materials {
+  table#wo_materials_show {
+    border: 0;
+    cellspacing: 5px;
+    cellpadding: 0;
+    width: 95%;
+    tr.odd {
+      background-color: #79FFD2;
+    }
+    tr {
+      #number {
+        text-align: left;
+        width: 10%;
+      }
+      #quantity {
+        text-align: left;
+        padding-right: 5px;
+        width: 10%;
+      }
+      #material {
+        text-align: left;
+        width: 40%;
+      }
+      #rate {
+        text-align: right;
+        width: 15%;
+      }
+      #total {
+        width: 20%;
+        text-align: right;
+      }
+      #subtotal {
+        background-color: #99EBC2;
+        text-align: right;
+      }
+    }
+  }
+}
+
+div#wo_show_vendors {
+  table#wo_vendors_show {
+    border: 0;
+    cellspacing: 5px;
+    cellpadding: 0;
+    width: 95%;
+    tr.odd {
+      background-color: #79FFD2;
+    }
+    tr {
+      #number {
+        text-align: left;
+        width: 10%;
+      }
+      #quantity {
+        text-align: left;
+        width: 10%;
+      }
+      #description {
+        text-align: left;
+        width: 40%;
+      }
+      #cost {
+        text-align: right;
+        width: 15%;
+      }
+      #total {
+        text-align: right;
+        width: 20%;
+      }
+      #subtotal {
+        background-color: #99EBC2;
+        text-align: right;
+      }
+    }
+  }
+}
+
+div#wo_show_labors {
+  table#wo_labors_show {
+    border: 0;
+    cellspacing: 5px;
+    cellpadding: 0;
+    width: 95%;
+    tr.odd {
+      background-color: #79FFD2;
+    }
+    tr {
+      #number {
+        text-align: left;
+        width: 10%;
+      }
+      #quantity {
+        text-align: left;
+        width: 10%;
+      }
+      #labor {
+        text-align: left;
+        width: 40%;
+      }
+      #rate {
+        text-align: right;
+        width: 15%;
+      }
+      #total {
+        text-align: right;
+        width: 20%;
+      }
+      #subtotal {
+        background-color: #99EBC2;
+        text-align: right;
+      }
+    }
+  }
+}
+
+div#wo_show_equipmentals {
+  table#wo_equipmentals_show {
+    border: 0;
+    cellspacing: 5px;
+    cellpadding: 0;
+    width: 95%;
+    tr.odd {
+      background-color: #79FFD2;
+    }
+    tr {
+      #number {
+        text-align: left;
+        width: 10%;
+      }
+      #quantity {
+        text-align: left;
+        width: 10%;
+      }
+      #equipmental {
+        text-align: left;
+        width: 40%;
+      }
+      #rate {
+        text-align: right;
+        width: 15%;
+      }
+      #total {
+        text-align: right;
+        width: 20%;
+      }
+      #subtotal {
+        background-color: #99EBC2;
+        text-align: right;
+      }
+    }
+  }
+}
+table#work_order_index {
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  tr.odd {
+    background-color: #79FFD2;
+  }
+  #numby {
+    text-align: left;
+    width: 12%;
+  }
+  #customer {
+    text-align: left;
+    width: 17%;
+  }
+  #description {
+    text-align: left;
+    width: 51%;
+  }
+  #quantity {
+    text-align: left;
+    width: 10%;
+  }
+  #actions {
+    text-align: left;
+    padding-left: 10px;
+    width: 10%;
+  }
+  #quants {
+    text-align: right;
+    padding-right: 5px;
+    width: 10%;
+  }
+}
+h1.centerme {
+  text-align: center;
+}
+
+// Edit form customer and order number
+div#work_order_vitals_edit {
+  width: 60%;
+  float: left;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 7px;
+  .field {
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 5pt;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+  }
+  span#numerical {
+    padding-top: 5px;
+    padding-right: 0;
+    padding-left: 0;
+    padding-bottom: 0;
+  }
+}
+div#work_order_dates {
+  width: 25%;
+  float: right;
+  text-align: right;
+  padding-top: 0;
+  padding-right: 10%;
+  .field {
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 5pt;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+  }
+}
+
+div#work_order_page_title {
+  width: 100%;
+  text-align: center;
+}
+div#edit_wo_description {
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 5pt;
+  margin-left: 0;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 7px;
+  .field {
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 5pt;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+  }
+}

@@ -1,0 +1,36 @@
+<div id="wo_show_materials">
+  <fieldset>
+    <legend>Materials</legend>
+
+    <table id="wo_materials_show">
+      <thead>
+      <tr>
+        <th id="number">No.</th>
+        <th id="quantity">Qty</th>
+        <th id="material">Material</th>
+        <th id="rate">Rate</th>
+        <th id="total">Total</th>
+      </tr>
+      </thead>
+      <tbody class="items">
+      <% @work_order.wo_material_line_items.each_with_index do |matter, index| %>
+        <tr class="<%= cycle("odd", "even") %>">
+          <td id="number"><%= index + 1 %></td>
+          <td id="quantity"><%= matter.quantity %>
+          <td id="material"><%= matter.material.name %></td>
+          <td id="rate"><%= matter.current_rate %></td>
+          <td id="total"><%= number_to_currency(matter.total_cost) %></td>
+        </tr>
+        <% @materials_subtotal += matter.total_cost %>
+      <% end %>
+      <% reset_cycle %>
+      <% if @materials_subtotal != 0.00 %>
+        <tr>
+          <td colspan="4">&nbsp;</td>
+          <td id="subtotal"><%= number_to_currency(@materials_subtotal.round(2)) %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </fieldset>
+</div>

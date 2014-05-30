@@ -1,8 +1,7 @@
 <p id="notice"><%= notice %></p>
-<div id="ordervitals">
-  <div>
+<div id="order_vitals">
     <strong>Order #:</strong>
-    <%= @order.order_number %>
+    <%= generate_order_number_with_links(@order) %>
     <% if @order.work_order.nil? %>
       <% @work_order = WorkOrder.new %>
       <%= form_for(@work_order, html: { class: "inline_form" }) do |f|  %>
@@ -10,45 +9,56 @@
         <%= f.submit 'Create Work Order' %>
       <% end %>
     <% end %>
-  </div>
-
+  <div id="break_it"></div>
   <strong>Customer:</strong>
   <%= link_to @order.customer.name, @order.customer %>
 </div>
 
-<div id="orderdates">
+<div id="order_dates">
     <strong>Date In:</strong>
     <%= date_mdY(@order.created_at) %><br />
     <strong>Estimated Completion:</strong>
     <%= date_mdY(@order.completion_date) %>
 </div>
+
 <p class="clearboth"></p>
 
-<div id="fulldescription">
-  <strong>Quantity:</strong>
-  <%= @order.quantity %>
+<div id="quantity_and_description">
+  <div id="quantity">
+    <strong>Quantity:</strong>
+    <%= @order.quantity %>
+  </div>
+  <div id="description_title">
     <strong>Description:</strong>
+  </div>
+  <div id="description">
     <%= @order.description %>
+  </div>
 </div>
 
-<div id="order_drop_downs">
-  <div id="materialsvendors">
-    <%= render 'show_materials' %>
+<p class="clearboth"></p>
 
+<div id="order_drop_downs">
+  <div id="materials_and_vendors">
+    <%= render 'show_materials' %>
     <%= render 'show_vendors' %>
   </div>
 
-  <div id="laborequipmentals">
+  <div id="labor_and_equipmentals">
     <%= render 'show_labors' %>
     <%= render 'show_equipmentals' %>
   </div>
 </div>
+
 <p class="clearboth"></p>
-<div id="costsummary">
+
+<div id="cost_summary">
   <%= render 'costsummary' %>
 </div>
+
 <p class="clearboth"></p>
 
-
+<% if @order.work_order.nil? %>
 <%= link_to 'Edit', edit_order_path(@order) %> |
+  <% end %>
 <%= link_to 'Back', orders_path %>

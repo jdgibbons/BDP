@@ -61,9 +61,14 @@ class CustomersController < ApplicationController
   # DELETE /customers/1
   # DELETE /customers/1.json
   def destroy
-    @customer.destroy
+    if @customer.destroy
+      message = "Customer was successfully removed from the database."
+    else
+      order_names = @customer.orders.map { |o| o.order_number }.join ', '
+      message = "'#{@customer.name}' could not be removed from the database due to #{'order'.pluralize(@customer.orders.count)}: #{order_names}."
+    end
     respond_to do |format|
-      format.html { redirect_to customers_url }
+      format.html { redirect_to customers_url, :notice => message  }
       format.json { head :no_content }
     end
   end

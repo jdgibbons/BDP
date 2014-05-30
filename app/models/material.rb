@@ -14,6 +14,7 @@ class Material < ActiveRecord::Base
       return true
     else
       errors.add(:base, 'Material Line Items present')
+      return false
     end
   end
 end

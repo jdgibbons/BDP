@@ -3,12 +3,14 @@ class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
   before_filter :reparse_date, only: [:update, :create]
+  before_filter :confirm_company, only: [:create]
 
   # GET /orders
   # GET /orders.json
   def index
     @page_title = "orders"
-    @orders = Order.all
+    # @orders = Order.all
+    @orders = Order.paginate(page: params[:page], per_page: 15 )
   end
 
   # GET /orders/1
@@ -19,7 +21,7 @@ class OrdersController < ApplicationController
     @equipmentals_subtotal = 0.00
     @labors_subtotal = 0.00
     @vendors_subtotal = 0.00
-    @cost_of_goods = 0.1;
+    @cost_of_goods = 0.00;
   end
 
   # GET /orders/new
@@ -94,11 +96,27 @@ class OrdersController < ApplicationController
   # Compensate for the date format problem that is caused by the jquery datepicker
   def reparse_date
     if params[:order][:completion_date].nil? || params[:order][:completion_date] == ""
-      params[:order][:completion] = ""
+      params[:order][:completion_date] = ""
       return
     end
     temp_date = params[:order][:completion_date].split("/")
     params[:order][:completion_date] = temp_date[1] + "/" + temp_date[0] + "/" + temp_date[2]
+  end
+
+  # This method will create a new customer if the name doesn't match one that is already in the
+  # database.
+  def confirm_company
+    if params[:order][:customer_id] == "" && params[:order][:customer_id].is_a?(Integer) == false
+      if not params[:order][:customer].nil? && params[:order][:customer] != ""
+
+        # the following allows for the creation of a company with a duplicate name if the text
+        # wasn't selected in the autocomplete.
+        # TODO figure out what the response to the duplicate customer name should be, then code it.
+
+        @custard = Customer.create(name: params[:order][:customer])
+        params[:order][:customer_id] = @custard.id
+      end
+    end
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

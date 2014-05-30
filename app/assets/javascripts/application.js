@@ -15,6 +15,8 @@
 //= require jquery.ui.autocomplete
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require jquery.expander
+//= require jquery.validate
 //= require autocomplete-rails
 //= require autonumeric
 //= require_tree .

@@ -3,9 +3,28 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 html.customers {
   background: #E6FAFF;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
 }
 body.customers {
   background: #E6FAFF;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+}
+h1#customer_heading {
+  padding-top: 10px;
 }
 table#customer_show {
   width: 80%;

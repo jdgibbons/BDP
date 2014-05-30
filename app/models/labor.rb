@@ -14,6 +14,7 @@ class Labor < ActiveRecord::Base
       return true
     else
       errors.add(:base, 'Labor Line Items present')
+      return false
     end
   end
 end
