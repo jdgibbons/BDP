@@ -33,8 +33,9 @@ body.work_orders {
 // Customer and order number
 div#work_order_vitals {
   width: 60%;
-  padding-left: 7px;
   float: left;
+  padding-top: 0;
+  padding-left: 7px;
 }
 
 // Creation and estimated completion dates
@@ -75,24 +76,29 @@ p.clearboth {
 div#wo_quantity_and_description {
   display: block;
   width: 100%;
-  margin-top: 20px;
-  padding-bottom: 30px;
+  margin-top: 5px;
+  padding-bottom: 0;
   padding-left: 7px;
   div#quantity {
     width: 15%;
+    padding-top: 0;
+    padding-bottom: 0;
     float: left;
   }
   div#description_title {
     float: left;
-    text-align: right;
+    padding-top: 0;
+    padding-bottom: 0;
     width: 10%;
   }
   div#description {
-    width: 73%;
-    padding-right: 10px;
+    width: 75%;
+    padding-top: 0;
+    padding-bottom: 0;
     float: right;
   }
 }
+
 // Materials, vendors, equipment(als), and labor
 div#wo_order_drop_downs {
   display: block;

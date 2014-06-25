@@ -10,7 +10,7 @@ class OrdersController < ApplicationController
   def index
     @page_title = "orders"
     # @orders = Order.all
-    @orders = Order.paginate(page: params[:page], per_page: 15 )
+    @orders = Order.paginate(page: params[:page], per_page: 15)
   end
 
   # GET /orders/1

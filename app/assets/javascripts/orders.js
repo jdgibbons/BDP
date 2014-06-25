@@ -9,6 +9,10 @@ $(document).ready(function(e) {
 });
 
 $(document).ready(function(e) {
+  $( '#order_customer' ).autocomplete({ autoFocus: true });
+});
+
+$(document).ready(function(e) {
   $('.datepicker').datepicker({
     format: "mm/dd/yyyy",
     todayHighlight: true,
@@ -24,9 +28,11 @@ $(document).ready(function(e) {
     collapseEffect: 'fadeOut'
   });
 });
+
 $(document).ready(function(){
   $('#new_order').validate({
     rules: {
+
       "order[customer]": {required: true},
       "order[quantity]": {required: true, min: 1}
     },

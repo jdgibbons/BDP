@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140514190731) do
+ActiveRecord::Schema.define(version: 20140623171108) do
+
+  create_table "addresses", force: true do |t|
+    t.string   "line1"
+    t.string   "line2"
+    t.string   "city"
+    t.integer  "state"
+    t.string   "zip_code"
+    t.integer  "type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "customer_id"
+  end
 
   create_table "contacts", force: true do |t|
     t.string   "name"
@@ -20,6 +32,8 @@ ActiveRecord::Schema.define(version: 20140514190731) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "customer_id"
+    t.string   "last_name"
+    t.string   "first_name"
   end
 
   add_index "contacts", ["customer_id"], name: "index_contacts_on_customer_id", using: :btree

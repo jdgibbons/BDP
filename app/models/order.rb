@@ -6,7 +6,7 @@ class Order < ActiveRecord::Base
   has_many :vendors, dependent: :destroy
   has_one :work_order, dependent: :destroy
 
-  validates_presence_of :customer, :quantity
+  validates_presence_of :customer_id, :quantity
   validates_numericality_of :quantity
 
   after_save :check_for_duplicate_line_items, :set_current_equipmentals_li_rate, :set_current_materials_li_rate,

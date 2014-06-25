@@ -1,4 +1,6 @@
 BDP::Application.routes.draw do
+  resources :addresses
+
   resources :work_orders
 
   resources :vendors

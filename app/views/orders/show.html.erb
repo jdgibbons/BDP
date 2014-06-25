@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 <div id="order_vitals">
-    <strong>Order #:</strong>
+    <strong>Order:</strong>
     <%= generate_order_number_with_links(@order) %>
     <% if @order.work_order.nil? %>
       <% @work_order = WorkOrder.new %>

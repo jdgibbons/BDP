@@ -1,5 +1,4 @@
 <p id="notice"><%= notice %></p>
-
 <div id="work_order_vitals">
   <strong>Order:</strong>
   <%= generate_order_number_with_links(@work_order.order) %><br />
@@ -28,6 +27,8 @@
     <%= @work_order.description %>
   </div>
 </div>
+
+<p class="clearboth"></p>
 
 <div id="wo_order_drop_downs">
   <div id="wo_materials_and_vendors">
