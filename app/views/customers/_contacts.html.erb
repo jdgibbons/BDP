@@ -2,6 +2,8 @@
   <table border="0" cellspacing="0" cellpadding="0">
     <thead>
     <th>Name</th>
+    <th>First</th>
+    <th>Last</th>
     <th>Telephone</th>
     <th>Email</th>
     <th></th>
@@ -10,6 +12,8 @@
     <%= f.nested_fields_for :contacts do |f| %>
       <tr class="item <%= cycle("even", "odd") %>">
         <td><%= f.text_field :name %></td>
+        <td><%= f.text_field :first_name %></td>
+        <td><%=f.text_field :last_name %></td>
         <td><%= f.text_field :telephone %></td>
         <td><%= f.text_field :email %></td>
 
