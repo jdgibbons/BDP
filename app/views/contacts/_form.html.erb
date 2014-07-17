@@ -15,8 +15,6 @@
     <% if not @customer.nil? %>
       <%= hidden_field_tag 'customer_id', @customer.id %>
     <% end %>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
   </div>
   <div class="field">
     <%= f.label :first_name %>

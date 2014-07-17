@@ -92,10 +92,11 @@ div#wo_quantity_and_description {
     width: 10%;
   }
   div#description {
-    width: 75%;
+    width: 70%;
     padding-top: 0;
     padding-bottom: 0;
     float: right;
+    padding-right: 5%;
   }
 }
 
@@ -360,4 +361,40 @@ div#edit_wo_description {
     padding-bottom: 0;
     padding-left: 0;
   }
+}
+div#wo_order_drop_down_edits {
+  display: block;
+  width: 100%;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+}
+div#wo_materials_and_vendors_edit {
+  width: 50%;
+  float: left;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+}
+div#wo_labor_and_equipmentals_edit {
+  width: 50%;
+  float: right;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
 }

@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 <div id="work_order_vitals">
-  <strong>Order:</strong>
+  <strong>Work Order:</strong>
   <%= generate_order_number_with_links(@work_order.order) %><br />
   <strong>Customer:</strong>
   <%= link_to @work_order.order.customer.name, @work_order.order.customer %>

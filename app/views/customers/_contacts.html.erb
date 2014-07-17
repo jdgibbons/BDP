@@ -1,23 +1,21 @@
 <div id="customer_contacts_edit">
   <table border="0" cellspacing="0" cellpadding="0">
     <thead>
-    <th>Name</th>
-    <th>First</th>
-    <th>Last</th>
-    <th>Telephone</th>
-    <th>Email</th>
-    <th></th>
+    <th id="firstname">First</th>
+    <th id="lastname">Last</th>
+    <th id="telephone">Telephone</th>
+    <th id="email">Email</th>
+    <th id="destroyme"></th>
     </thead>
     <tbody class="items">
     <%= f.nested_fields_for :contacts do |f| %>
       <tr class="item <%= cycle("even", "odd") %>">
-        <td><%= f.text_field :name %></td>
-        <td><%= f.text_field :first_name %></td>
-        <td><%=f.text_field :last_name %></td>
-        <td><%= f.text_field :telephone %></td>
-        <td><%= f.text_field :email %></td>
+        <td id="firstname"><%= f.text_field :first_name %></td>
+        <td id="lastname"><%= f.text_field :last_name %></td>
+        <td id="telephone"><%= f.text_field :telephone %></td>
+        <td id="email"><%= f.text_field :email %></td>
 
-        <td><a href="#" class="remove" data-confirm="Are you sure?">remove</a>
+        <td id="destroyme"><a href="#" class="remove" data-confirm="Are you sure?">remove</a>
           <%= f.hidden_field :_destroy %>
         </td>
       </tr>

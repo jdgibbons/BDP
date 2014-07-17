@@ -43,13 +43,18 @@
   </div>
 
   <p class="clearboth"></p>
-
+  <div id="wo_order_drop_down_edits">
+    <div id="materials_and_vendors_edit">
       <%= render :partial => "materials", :locals => {:f => f} %>
       <%= render :partial => "vendors", :locals => {:f => f} %>
-
+    </div>
+    <div id="wo_labor_and_equipmentals_edit">
       <%= render :partial => "labors", :locals => {:f => f} %>
       <%= render :partial => "equipmentals", :locals => {:f => f} %>
+    </div>
+  </div>
 
+  <p class="clearboth"></p>
 
   <div class="actions">
     <%= f.submit %>

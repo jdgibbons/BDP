@@ -57,27 +57,43 @@ table#customer_show {
   }
 
 }
-table#customer_contacts_edit {
-  width: 80%;
-  border: 1px solid #cceeff;
-  margin-top: 5px;
-  margin-right: 0;
-  margin-bottom: 5px;
-  margin-left: 0;
-  text-align: left;
+div#customer_contacts_edit {
+  table {
+    width: 80%;
+    border: 1px solid #cceeff;
+    margin-top: 5px;
+    margin-right: 0;
+    margin-bottom: 5px;
+    margin-left: 0;
+    text-align: left;
 
-  th {
-    font-weight: bold;
-    background-color: #aaccff;
-    border-bottom: 1px solid #436E99;
-    padding: 4px 5px;
-  }
+    tr {
+      background-color: #cceeff;
+      padding: 4px 5px;
 
-  td {
-    padding: 4px 5px;
-  }
-  tr.odd {
-    background-color: #CCE0FF;
-    border-bottom: 1px solid #cceeff;
+      #firstname {
+        width: 15%;
+        text-align: left;
+      }
+
+      #lastname {
+        #width: 20%;
+        text-align: left;
+      }
+
+      #telephone {
+        width: 20%;
+        text-align: left;
+      }
+
+      #email {
+        width: 25%;
+        text-align: left;
+      }
+      #destroyme {
+        width: 20%;
+        text-align: left;
+      }
+    }
   }
 }
